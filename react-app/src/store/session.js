@@ -9,7 +9,7 @@ const setUser = (user) => ({
 
 const removeUser = () => ({
     type: REMOVE_USER,
-})
+});
 
 const initialState = { user: null };
 
