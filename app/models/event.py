@@ -15,7 +15,7 @@ class Event(db.Model):
   y_start = db.Column(db.Integer)
   x_end = db.Column(db.Integer)
   y_end = db.Column(db.Integer)
-  match_id = db.Column(db.Integer)
+  match_id = db.Column(db.Integer, db.ForeignKey('matches.match_key'))
   event_name = db.Column(db.String(255))
   team_id = db.Column(db.Integer)
   match_period = db.Column(db.String(255))
@@ -26,6 +26,8 @@ class Event(db.Model):
   label = db.Column(db.String(255))
   first_name = db.Column(db.String(255))
   last_name = db.Column(db.String(255))
+
+  match = db.relationship('Match', back_populates="matches")
 
   def to_dict(self):
     return {

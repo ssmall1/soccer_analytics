@@ -4,11 +4,11 @@ class Favorite(db.Model):
   __tablename__ = 'favorites'
 
   id = db.Column(db.Integer, primary_key = True)
-  user_id = db.Column(db.Integer, nullable=False)
-  match_id = db.Column(db.Integer, nullable=False)
+  user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
+  match_id = db.Column(db.Integer, db.ForeignKey('matches.id'), nullable=False)
 
   user = db.relationship('User')
-  match = db.relationship('Match')
+  match = db.relationship('Match', back_populates="favorite")
 
   def to_dict(self):
     return {
