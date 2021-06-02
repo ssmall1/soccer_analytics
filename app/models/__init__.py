@@ -1,3 +1,4 @@
 from .db import db
 from .user import User
-from .events import Event
+from .event import Event
+from .match import Match
