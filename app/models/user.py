@@ -13,6 +13,8 @@ class User(db.Model, UserMixin):
   hashed_password = db.Column(db.String(255), nullable = False)
   img_url = db.Column(db.String(255))
 
+  comment = db.relationship('Comment', back_populates="user")
+
   @property
   def password(self):
     return self.hashed_password

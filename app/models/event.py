@@ -27,6 +27,8 @@ class Event(db.Model):
   first_name = db.Column(db.String(255))
   last_name = db.Column(db.String(255))
 
+  match_key = db.relationship('Match', back_populates="match")
+
   def to_dict(self):
     return {
       "id": self.id,
