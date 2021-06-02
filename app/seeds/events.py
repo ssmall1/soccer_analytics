@@ -3540,7 +3540,7 @@ def seed_events():
     db.session.add(event1766)
     db.session.add(event1767)
     db.session.add(event1768)
-
+    
     db.session.commit()
 
 # Uses a raw SQL query to TRUNCATE the users table.
