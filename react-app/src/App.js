@@ -44,9 +44,9 @@ function App() {
         <ProtectedRoute path="/" exact={true} >
           <h1>My Home Page</h1>
         </ProtectedRoute>
-        <Route path="/events">
+        {/* <Route path="/events">
           <Events />
-        </Route> 
+        </Route>  */}
       </Switch>
     </BrowserRouter>
   );
