@@ -1,0 +1,22 @@
+.splash-nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: white;
+    height: 8vh;
+    border-bottom: 2px solid #3a3a3a;
+}
+
+#logo-img{
+    height: 65px;
+    width: auto;
+}
+
+.nav-links{
+    padding-right: 50px;
+}
+
+.nav-links > a{
+    padding-left: 20px;
+}
+
