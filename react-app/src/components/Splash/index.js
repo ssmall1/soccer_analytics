@@ -5,7 +5,6 @@ import { NavLink, Redirect } from "react-router-dom";
 // import pitchImg from "../../resources/pitch.jpg";
 import './Splash.css';
 import logo from "../../resources/sa_logo_transparent.png";
-import butt from "../../resources/butt.gif";
 import dinho from "../../resources/dinho.gif";
 import foul from "../../resources/foul.gif";
 import freekick from "../../resources/freekick.gif";
@@ -37,7 +36,6 @@ const Splash = () => {
 
             <div className="splash-body">
                 <div id="body-images-container">
-                    {/* <img id="logo-img" src={butt}></img> */}
                     <div id="left-gif">
                         <img id="logo-img" src={foul}></img>
                     </div>
@@ -48,6 +46,11 @@ const Splash = () => {
                         <img id="logo-img" src={ronaldo}></img>
                         <img id="logo-img" src={messi}></img>
                         <img id="logo-img" src={pulisic}></img>
+                    </div>
+
+                    <div className="splash-auth-links">
+                        <NavLink to="/sign-in">Sign-in</NavLink>
+                        <NavLink to="/sign-up">Sign-up</NavLink>
                     </div>
 
                     <div id="right-gif">

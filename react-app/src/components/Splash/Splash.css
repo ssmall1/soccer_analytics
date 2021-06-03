@@ -5,6 +5,7 @@
     background-color: white;
     height: 8vh;
     border-bottom: 2px solid #3a3a3a;
+    color: #008fc8;
 }
 
 #logo-img{
@@ -39,6 +40,25 @@
     border-radius: 10px;
     height: 175px;
 }
+
+.splash-auth-links{
+    grid-column: 3 / 11;
+    grid-row: 3 / 5;
+    display: flex;
+    justify-content: center;
+}
+
+.splash-auth-links > * {
+    padding-top: 70px;
+    font-size: 30px;
+    margin: 0px 15px;
+}
+
+.splash-auth-links > *:hover{
+    color: black;
+}
+
+
 
 #left-gif{
     display: flex;

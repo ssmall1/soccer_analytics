@@ -1,11 +1,14 @@
 /* TODO Add site wide styles */
+*{
+    font-family: 'Noto Sans', sans-serif;
+    color: #3a3a3a;
+
+}
 body{
     padding: 0px;
     margin: 0px;
     /* background-color: rgba(240, 248, 255, 0.144); */
     background-color: rgba(240, 248, 255, 0.836);
-    font-family: 'Noto Sans', sans-serif;
-    color: #3a3a3a;
 }
 
 a{
