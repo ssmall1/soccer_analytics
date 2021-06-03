@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { login } from "../../store/session";
+import { signUp } from '../../store/session';
+import pitchImg from "../../resources/pitch.jpg";
+import './Form.css';
 
 const LoginForm = () => {
   const [errors, setErrors] = useState([]);
@@ -18,6 +21,12 @@ const LoginForm = () => {
     }
   };
 
+  const demoUser = async (e) => {
+    e.preventDefault();
+    const data = await dispatch(login('bielsa@leeds.com', 'whatisgoingon'));
+    if (data.errors) setErrors(data.errors);
+  }
+
   const updateEmail = (e) => {
     setEmail(e.target.value);
   };
@@ -31,34 +40,48 @@ const LoginForm = () => {
   }
 
   return (
-    <form onSubmit={onLogin}>
-      <div>
-        {errors.map((error) => (
-          <div>{error}</div>
-        ))}
-      </div>
-      <div>
-        <label htmlFor="email">Email</label>
-        <input
-          name="email"
-          type="text"
-          placeholder="Email"
-          value={email}
-          onChange={updateEmail}
-        />
-      </div>
-      <div>
-        <label htmlFor="password">Password</label>
-        <input
-          name="password"
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={updatePassword}
-        />
-        <button type="submit">Login</button>
-      </div>
-    </form>
+    <div className='auth-wrapper'>
+      <div className='login-image-container'>
+          <img alt='ocean pitch' id='form-image' src={pitchImg}></img>
+        </div>
+
+      <form className="auth-form-wrapper" onSubmit={onLogin}>
+        <div>
+          {errors.map((error) => (
+            <div>{error}</div>
+          ))}
+        </div>
+        <div>
+          <label htmlFor="email">Email</label>
+          <input
+            className="login-signup-input"
+            name="email"
+            type="text"
+            placeholder="Email"
+            value={email}
+            onChange={updateEmail}
+          />
+        </div>
+        <div>
+          <label htmlFor="password">Password</label>
+          <input
+            className="login-signup-input"
+            name="password"
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={updatePassword}
+          />
+          <div className='redirect-text'>Don't Have an Account?
+            <a href="/sign-up" className="login-link"> Sign Up </a>
+        </div>
+        <div className="submit-wrapper">
+          <button className='signup-signin-btn' type="submit">Sign Up</button>
+          <button className='signup-signin-btn' type="submit" onClick={demoUser}>Demo User</button>
+        </div>
+        </div>
+      </form>
+    </div>
   );
 };
 

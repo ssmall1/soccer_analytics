@@ -132,11 +132,11 @@ const SignUpForm = () => {
           ></input>
         </div>
         <div className='redirect-text'>Have an account?
-            <a href="/login" className="login-link"> Sign In </a>
+            <a href="/sign-in" className="signin-link"> Sign In </a>
         </div>
         <div className="submit-wrapper">
-          <button className='signup-login-btn' type="submit">Sign Up</button>
-          <button className='signup-login-btn' type="submit" onClick={demoUser}>Demo User</button>
+          <button className='signup-signin-btn' type="submit">Sign Up</button>
+          <button className='signup-signin-btn' type="submit" onClick={demoUser}>Demo User</button>
         </div>
       </form>
     </div>

@@ -62,7 +62,7 @@
     margin: 5px 0px 50px 0px;
   }
   
-  .login-link{
+  .signin-link{
     color: #008fc8;
     text-decoration: none;
     font-size: 13px;
@@ -72,7 +72,7 @@
     color: #25b5ee;
   }
   
-  .signup-login-btn{
+  .signup-signin-btn{
     border: none;
     border-radius: 5px;
     background-color: #008fc8;
@@ -84,7 +84,7 @@
     margin-left: 10px;
   }
   
-  .form-btn:hover{
+  .signup-signin-btn:hover{
     background-color: #25b5ee;
   }
   
