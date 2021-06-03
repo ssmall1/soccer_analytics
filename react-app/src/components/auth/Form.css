@@ -4,6 +4,7 @@
     /* width: 100vw; */
     grid-template-columns: repeat(6, 1fr);
     grid-template-rows: 1fr;
+    background-color: rgba(240, 248, 255, 0.836);
   }
   
   .auth-form-wrapper{
