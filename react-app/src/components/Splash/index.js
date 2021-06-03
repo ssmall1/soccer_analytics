@@ -38,19 +38,20 @@ const Splash = () => {
                         <img id="splash-gif" src={pulisic} alt="pulisic celebration"></img>
                     </div>
 
-                    {/* <div className="splash-auth-links">
-                        <NavLink id="splash-signin" to="/sign-in">Sign-in</NavLink>
-                        <NavLink id="splash-signup" to="/sign-up">Sign-up</NavLink>
-                    </div> */}
-
                     <div id="right-gif">
                         <img id="splash-gif" src={yedlin} alt="yedlin move"></img>
                     </div>
                 </div>
             </div>
 
-            <div className="splash-description">
-                Cool Stuff
+            <div className="info-container">
+                <div className="info-title">Analyze matches based on:</div>
+                <ul>
+                    <li>Goals</li>
+                    <li>Possession</li>
+                    <li>Positional player data</li>
+                    <li>Passes, shots, and more</li>
+                </ul>
             </div>
         </>
     )
