@@ -5,7 +5,8 @@ const Footer = () => {
 
     return(
         <div className="footer-wrapper">
-            Copyright Schuler Small 2021
+            <i className="fa fa-copyright" aria-hidden="true"></i>
+            Schuler Small | All Rights Reserved
         </div>
     )
 }

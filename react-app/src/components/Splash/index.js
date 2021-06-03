@@ -22,7 +22,9 @@ const Splash = () => {
     return(
         <>
             <div className="splash-nav">
-                <img id="logo-img" src={logo}></img>
+                <NavLink to="/welcome">
+                    <img id="logo-img" src={logo}></img>
+                </NavLink>
 
                 <div className="nav-links">
                     <a href="https://github.com/ssmall1/soccer_analytics">

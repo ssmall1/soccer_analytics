@@ -20,4 +20,8 @@ a:hover, button:hover{
     cursor: pointer;
 }
 
+.fa, .fab{
+    padding: 0 2px;
+}
+
 /* 2161CD favicon color */
