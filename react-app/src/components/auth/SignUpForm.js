@@ -62,13 +62,14 @@ const SignUpForm = () => {
   return (
     <div className='auth-wrapper'>
       <div className='login-image-container'>
-        <img alt='ocean pitch' className='form-image' src={pitchImg}></img>
+        <img alt='ocean pitch' id='form-image' src={pitchImg}></img>
       </div>
 
-      <form className="form-wrapper" onSubmit={onSignUp}>
+      <form className="auth-form-wrapper" onSubmit={onSignUp}>
         <div>
           <label>First Name</label>
           <input
+            className="login-signup-input"
             type="text"
             name="first_name"
             onChange={updateFirstName}
@@ -78,6 +79,7 @@ const SignUpForm = () => {
         <div>
           <label>Last Name</label>
           <input
+            className="login-signup-input"
             type="text"
             name="last_name"
             onChange={updateLastName}
@@ -88,6 +90,7 @@ const SignUpForm = () => {
         <div>
           <label>Email</label>
           <input
+            className="login-signup-input"
             type="text"
             name="email"
             onChange={updateEmail}
@@ -98,6 +101,7 @@ const SignUpForm = () => {
         <div>
           <label>Password</label>
           <input
+            className="login-signup-input"
             type="password"
             name="password"
             onChange={updatePassword}
@@ -108,6 +112,7 @@ const SignUpForm = () => {
         <div>
           <label>Repeat Password</label>
           <input
+            className="login-signup-input"
             type="password"
             name="repeat_password"
             onChange={updateRepeatPassword}
@@ -119,6 +124,7 @@ const SignUpForm = () => {
         <div>
           <label>Profile Image</label>
           <input
+            className="login-signup-input"
             type="text"
             name="image_url"
             onChange={updateImgUrl}
@@ -126,12 +132,12 @@ const SignUpForm = () => {
           ></input>
         </div>
         <div className='redirect-text'>Have an account?
-            <a href="/login" className="redirect-link"> Sign In </a>
-            <span>or</span>
-            <a href="/" className="home-link"> Go Home</a>
+            <a href="/login" className="login-link"> Sign In </a>
         </div>
-        <button className='form-btn' type="submit">Sign Up</button>
-        <button className='form-btn' type="submit" onClick={demoUser}>Demo User</button>
+        <div className="submit-wrapper">
+          <button className='signup-login-btn' type="submit">Sign Up</button>
+          <button className='signup-login-btn' type="submit" onClick={demoUser}>Demo User</button>
+        </div>
       </form>
     </div>
   );

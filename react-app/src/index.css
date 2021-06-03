@@ -1,5 +1,7 @@
 /* TODO Add site wide styles */
-body, ul, div, nav {
+body, ul, div, nav{
     padding: 0px;
     margin: 0px;
+    background-color: rgba(240, 248, 255, 0.144);
+    font-family: 'Noto Sans', sans-serif;
 }

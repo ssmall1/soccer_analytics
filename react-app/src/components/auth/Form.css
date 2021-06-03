@@ -1,31 +1,32 @@
 .auth-wrapper{
     display: grid;
-    height: 100vh;
-    width: 100vw;
+    /* height: 90vh; */
+    /* width: 100vw; */
     grid-template-columns: repeat(6, 1fr);
     grid-template-rows: 1fr;
   }
   
-  .login-image-container{
-    grid-column: 4 / 7;
-    /* height: 100vh; */
-    width: 50vw;
-  }
-  
-  .form-image{
-    width: 50vw;
-    /* height: 100vh; */
-  }
-  
-  .form-wrapper{
-    grid-column: 2 / 4;
+  .auth-form-wrapper{
+    grid-column: 2 / 5;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
     justify-content: center;
-    padding-left: 30px;
-    margin-left: 22px;
+    margin-left: 50px;
   }
+
+  .login-image-container{
+    grid-column: 0 / 2;
+    height: 100vh;
+    width: 50vw;
+    margin: 10px 10px;
+  }
+  
+  #form-image{
+    width: 50vw;
+    border-radius: 15px;
+    height: 100vh;
+  }
+  
   
   .form-text{
     font-size: 1.33em;
@@ -58,10 +59,10 @@
     font-weight: 500;
     font-size: 13px;
     letter-spacing: .025em;
-    margin: 5px 0px 80px 0px;
+    margin: 5px 0px 50px 0px;
   }
   
-  .redirect-link{
+  .login-link{
     color: #008fc8;
     text-decoration: none;
     font-size: 13px;
@@ -71,17 +72,7 @@
     color: #25b5ee;
   }
   
-  .home-link{
-    color: #008fc8;
-    text-decoration: none;
-    font-size: 13px;
-  }
-  
-  .home-link:hover{
-    color: #25b5ee;
-  }
-  
-  .form-btn{
+  .signup-login-btn{
     border: none;
     border-radius: 5px;
     background-color: #008fc8;
@@ -90,7 +81,7 @@
     letter-spacing: .02em;
     width: 9.5em;
     padding: 1em 1.1em;
-    margin-top: 10px;
+    margin-left: 10px;
   }
   
   .form-btn:hover{
