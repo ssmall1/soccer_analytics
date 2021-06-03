@@ -68,7 +68,7 @@
     font-size: 13px;
   }
   
-  .redirect-link:hover{
+  #signin-link:hover, #signup-link:hover{
     color: #25b5ee;
   }
   
