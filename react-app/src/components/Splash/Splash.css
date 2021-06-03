@@ -17,11 +17,16 @@
 }
 
 .nav-links > a{
-    padding-left: 20px;
+    margin-left: 20px;
+    padding: 5px 10px;
+    border-radius: 5px;
 }
 
 .nav-links > a:hover{
     color: black;
+    background-color: #008fc82c;
+    transition: 0.4s;
+    
 }
 
 .splash-header{
@@ -38,23 +43,7 @@
 
 #body-images-container img{
     border-radius: 10px;
-    height: 300px;
-}
-
-.splash-auth-links{
-    grid-column: 5 / 8;
-    display: flex;
-    justify-content: center;
-}
-
-.splash-auth-links > * {
-    padding-top: 70px;
-    font-size: 30px;
-    margin: 0px 15px;
-}
-
-.splash-auth-links > *:hover{
-    color: black;
+    height: 50%;
 }
 
 #left-gif{
@@ -68,11 +57,46 @@
     grid-column: 9 / 13;
 }
 
-#splash-signin{
+.nav-auth-links{
+    display: flex;
+    align-items: center;
+}
 
+#splash-signin, #splash-signup{
+    font-size: 20px;
+    margin: 0px 15px;
+    transition: 0.4s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 30px;
+    padding: 4px 15px;
+    border-radius: 10px;
+}
+
+#splash-signin{
+    border: 2px solid #008fc8;
+    color: #008fc8;
+}
+
+#splash-signin:hover{
+    color: white;
+    background-color: #008fc8;
+    height: 27px;
 }
 
 #splash-signup{
-    
+    background-color: #008fc8;
+    color: white;
 }
 
+#splash-signup:hover{
+    color: #008fc8;
+    border: 2px solid #008fc8;
+    background-color: rgba(240, 248, 255, 0.836);
+}
+
+.splash-description{
+    background-color: white;
+    height: 40vh;
+}

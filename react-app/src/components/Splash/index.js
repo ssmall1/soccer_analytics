@@ -14,8 +14,13 @@ const Splash = () => {
         <>
             <div className="splash-nav">
                 <NavLink to="/welcome">
-                    <img id="logo-img" src={logo}></img>
+                    <img id="logo-img" alt="logo" src={logo}></img>
                 </NavLink>
+
+                <div className="nav-auth-links">
+                    <NavLink id="splash-signin" to="/sign-in">Sign-in</NavLink>
+                    <NavLink id="splash-signup" to="/sign-up">Sign-up</NavLink>
+                </div>
 
                 <div className="nav-links">
                     <a href="https://github.com/ssmall1/soccer_analytics" rel="noopener noreferrer" target="_blank">
@@ -30,16 +35,16 @@ const Splash = () => {
             <div className="splash-header">
                 <div id="body-images-container">
                     <div id="left-gif">
-                        <img id="splash-gif" src={pulisic}></img>
+                        <img id="splash-gif" src={pulisic} alt="pulisic celebration"></img>
                     </div>
 
-                    <div className="splash-auth-links">
+                    {/* <div className="splash-auth-links">
                         <NavLink id="splash-signin" to="/sign-in">Sign-in</NavLink>
                         <NavLink id="splash-signup" to="/sign-up">Sign-up</NavLink>
-                    </div>
+                    </div> */}
 
                     <div id="right-gif">
-                        <img id="splash-gif" src={yedlin}></img>
+                        <img id="splash-gif" src={yedlin} alt="yedlin move"></img>
                     </div>
                 </div>
             </div>
