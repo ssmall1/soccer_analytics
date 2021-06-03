@@ -35,7 +35,7 @@ function App() {
         <Route path="/welcome" exact={true}>
           <Splash />
         </Route>
-        <Route path="/sign-in" exact={true}>
+        <Route path="/login" exact={true}>
           <LoginForm />
         </Route>
         <Route path="/sign-up" exact={true}>

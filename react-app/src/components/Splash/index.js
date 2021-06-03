@@ -18,8 +18,8 @@ const Splash = () => {
                 </NavLink>
 
                 <div className="nav-auth-links">
-                    <NavLink id="splash-signin" to="/sign-in">Sign-in</NavLink>
-                    <NavLink id="splash-signup" to="/sign-up">Sign-up</NavLink>
+                    <NavLink id="splash-signin" to="/login">Log In</NavLink>
+                    <NavLink id="splash-signup" to="/sign-up">Sign Up</NavLink>
                 </div>
 
                 <div className="nav-links">
