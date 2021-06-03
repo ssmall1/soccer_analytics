@@ -1,26 +1,24 @@
-.form-wrapper{
+.auth-wrapper{
     display: grid;
     height: 100vh;
     width: 100vw;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(6, 1fr);
     grid-template-rows: 1fr;
   }
   
-  .form-image__container{
-    grid-column: 1/2;
-    height: 100vh;
+  .login-image-container{
+    grid-column: 4 / 7;
+    /* height: 100vh; */
     width: 50vw;
-    transition: margin 2s;
   }
   
   .form-image{
     width: 50vw;
-    height: 100vh;
+    /* height: 100vh; */
   }
   
-  .form-container{
-    grid-column: 2/3;
-  
+  .form-wrapper{
+    grid-column: 2 / 4;
     display: flex;
     flex-direction: column;
     align-items: flex-start;

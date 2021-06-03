@@ -60,12 +60,12 @@ const SignUpForm = () => {
   }
 
   return (
-    <div className='form-wrapper'>
-      <div className='form-image__container'>
-        <img alt='login' className='form-image' src={pitchImg}></img>
+    <div className='auth-wrapper'>
+      <div className='login-image-container'>
+        <img alt='ocean pitch' className='form-image' src={pitchImg}></img>
       </div>
 
-      <form onSubmit={onSignUp}>
+      <form className="form-wrapper" onSubmit={onSignUp}>
         <div>
           <label>First Name</label>
           <input
