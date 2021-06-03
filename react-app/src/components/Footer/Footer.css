@@ -1,0 +1,10 @@
+.footer-wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    background-color: white;
+    border-top: 2px solid #3a3a3a;
+    height: 6vh;
+    padding-right: 20px;
+    background-color: rgb(240, 248, 255, 0.836);
+}

@@ -4,6 +4,7 @@
     /* width: 100vw; */
     grid-template-columns: repeat(6, 1fr);
     grid-template-rows: 1fr;
+    background-color: rgba(240, 248, 255, 0.836);
   }
   
   .auth-form-wrapper{
@@ -24,7 +25,7 @@
   #form-image{
     width: 50vw;
     border-radius: 15px;
-    height: 97vh;
+    height: 90vh;
   }
   
   
@@ -68,7 +69,7 @@
     font-size: 13px;
   }
   
-  .redirect-link:hover{
+  #signin-link:hover, #signup-link:hover{
     color: #25b5ee;
   }
   

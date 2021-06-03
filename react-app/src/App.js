@@ -7,6 +7,8 @@ import NavBar from "./components/NavBar";
 import ProtectedRoute from "./components/auth/ProtectedRoute";
 import UsersList from "./components/UsersList";
 import User from "./components/User";
+import Splash from "./components/Splash";
+import Footer from "./components/Footer";
 import { authenticate } from "./store/session";
 
 function App() {
@@ -29,6 +31,9 @@ function App() {
     <BrowserRouter>
       {/* <NavBar /> */}
       <Switch>
+        <Route path="/welcome" exact={true}>
+          <Splash />
+        </Route>
         <Route path="/sign-in" exact={true}>
           <LoginForm />
         </Route>
@@ -48,6 +53,7 @@ function App() {
           <Events />
         </Route>  */}
       </Switch>
+      <Footer />
     </BrowserRouter>
   );
 }

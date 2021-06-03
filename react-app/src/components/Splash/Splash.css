@@ -1,0 +1,102 @@
+.splash-nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: white;
+    height: 8vh;
+    border-bottom: 2px solid #3a3a3a;
+}
+
+#logo-img{
+    height: 65px;
+    width: auto;
+}
+
+.nav-links{
+    padding-right: 50px;
+}
+
+.nav-links > a{
+    margin-left: 20px;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.nav-links > a:hover{
+    color: black;
+    background-color: #008fc82c;
+    transition: 0.4s;
+    
+}
+
+.splash-header{
+    height: 45vh;
+    background-color: rgba(240, 248, 255, 0.836);
+    border-bottom: 2px solid #3a3a3a;
+}
+
+#body-images-container{
+    display: grid;
+    height: 86vh;
+    grid-template-columns: repeat(12, 1fr);
+}
+
+#body-images-container img{
+    border-radius: 10px;
+    height: 50%;
+}
+
+#left-gif{
+    padding: 20px 10px;
+    grid-column: 1 / 4;
+}
+
+#right-gif{
+    padding: 20px 10px;
+    padding-left: 75px;
+    grid-column: 9 / 13;
+}
+
+.nav-auth-links{
+    display: flex;
+    align-items: center;
+}
+
+#splash-signin, #splash-signup{
+    font-size: 20px;
+    margin: 0px 15px;
+    transition: 0.4s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 30px;
+    padding: 4px 15px;
+    border-radius: 10px;
+}
+
+#splash-signin{
+    border: 2px solid #008fc8;
+    color: #008fc8;
+}
+
+#splash-signin:hover{
+    color: white;
+    background-color: #008fc8;
+    height: 27px;
+}
+
+#splash-signup{
+    background-color: #008fc8;
+    color: white;
+}
+
+#splash-signup:hover{
+    color: #008fc8;
+    border: 2px solid #008fc8;
+    background-color: rgba(240, 248, 255, 0.836);
+}
+
+.splash-description{
+    background-color: white;
+    height: 40vh;
+}
