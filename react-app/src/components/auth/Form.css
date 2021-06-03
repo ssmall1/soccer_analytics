@@ -1,0 +1,101 @@
+.form-wrapper{
+    display: grid;
+    height: 100vh;
+    width: 100vw;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr;
+  }
+  
+  .form-image__container{
+    grid-column: 1/2;
+    height: 100vh;
+    width: 50vw;
+    transition: margin 2s;
+  }
+  
+  .form-image{
+    width: 50vw;
+    height: 100vh;
+  }
+  
+  .form-container{
+    grid-column: 2/3;
+  
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding-left: 30px;
+    margin-left: 22px;
+  }
+  
+  .form-text{
+    font-size: 1.33em;
+    font-weight: 500;
+    letter-spacing: .03em;
+  }
+  
+  .login-signup-input {
+    width: 35em;
+    height: 2.7em;
+    border-radius: 4px;
+    border: 1px rgb(228, 228, 228) solid;
+    /* margin: 10px 0px; */
+    transition: all 0.1s ease;
+    margin: 8px 0px;
+  }
+  
+  .login-signup-input:focus {
+    outline: none;
+    box-shadow: 0 0 0 .5px #008fc8;
+  }
+  
+  .form-input{
+    font-size: 13px;
+    font-weight: 500;
+  }
+  
+  .redirect-text{
+    color: black;
+    font-weight: 500;
+    font-size: 13px;
+    letter-spacing: .025em;
+    margin: 5px 0px 80px 0px;
+  }
+  
+  .redirect-link{
+    color: #008fc8;
+    text-decoration: none;
+    font-size: 13px;
+  }
+  
+  .redirect-link:hover{
+    color: #25b5ee;
+  }
+  
+  .home-link{
+    color: #008fc8;
+    text-decoration: none;
+    font-size: 13px;
+  }
+  
+  .home-link:hover{
+    color: #25b5ee;
+  }
+  
+  .form-btn{
+    border: none;
+    border-radius: 5px;
+    background-color: #008fc8;
+    color: white;
+    font-weight: 700;
+    letter-spacing: .02em;
+    width: 9.5em;
+    padding: 1em 1.1em;
+    margin-top: 10px;
+  }
+  
+  .form-btn:hover{
+    background-color: #25b5ee;
+  }
+  
