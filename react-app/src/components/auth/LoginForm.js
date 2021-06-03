@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { login } from "../../store/session";
-import { signUp } from '../../store/session';
 import pitchImg from "../../resources/pitch.jpg";
 import './Form.css';
 
@@ -73,7 +72,7 @@ const LoginForm = () => {
             onChange={updatePassword}
           />
           <div className='redirect-text'>Don't Have an Account?
-            <a href="/sign-up" className="login-link"> Sign Up </a>
+            <a href="/sign-up" id="signup-link"> Sign Up </a>
         </div>
         <div className="submit-wrapper">
           <button className='signup-signin-btn' type="submit">Sign Up</button>

@@ -6,7 +6,6 @@ import { login } from "../../store/session";
 import pitchImg from "../../resources/pitch.jpg";
 import './Form.css';
 
-
 const SignUpForm = () => {
   const [errors, setErrors] = useState([]);
   const [firstName, setFirstName] = useState("");
@@ -132,7 +131,7 @@ const SignUpForm = () => {
           ></input>
         </div>
         <div className='redirect-text'>Have an account?
-            <a href="/sign-in" className="signin-link"> Sign In </a>
+            <a href="/sign-in" id="signin-link"> Sign In </a>
         </div>
         <div className="submit-wrapper">
           <button className='signup-signin-btn' type="submit">Sign Up</button>

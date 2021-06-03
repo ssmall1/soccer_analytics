@@ -16,7 +16,7 @@
 
   .login-image-container{
     grid-column: 0 / 2;
-    height: 100vh;
+    height: 90vh;
     width: 50vw;
     margin: 10px 10px;
   }
@@ -24,7 +24,7 @@
   #form-image{
     width: 50vw;
     border-radius: 15px;
-    height: 100vh;
+    height: 97vh;
   }
   
   
@@ -62,7 +62,7 @@
     margin: 5px 0px 50px 0px;
   }
   
-  .signin-link{
+  #signin-link, #signup-link{
     color: #008fc8;
     text-decoration: none;
     font-size: 13px;

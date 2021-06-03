@@ -5,7 +5,7 @@ from app.models import db, User
 def seed_users():
 
     demo = User(first_name='Marcelo', last_name='Bielsa', email='bielsa@leeds.com',
-                password='whatisgoingon')
+                password='whatisgoingon', img_url='https://i0.wp.com/thesefootballtimes.co/wp-content/uploads/2018/03/bielsa.jpeg?fit=1600%2C1091&ssl=1')
 
     db.session.add(demo)
 
