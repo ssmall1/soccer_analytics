@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import * as matchesReducer from "../../store/matches";
 import "./Home.css";
 
@@ -20,9 +21,11 @@ const Home = () => {
             <div className="matches-wrapper">
                 {matches.map((match) => {
                     return(
-                        <div className="match-container" key={match.match_key}>
-                            {match.match_name}
-                        </div>
+                        <Link to={`/matches/${match.match_key}`}>
+                            <div className="match-container" key={match.match_key}>
+                                {match.match_name}
+                            </div>
+                        </Link>
                     )
                 })
                 }
