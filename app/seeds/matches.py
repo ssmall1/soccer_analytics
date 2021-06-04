@@ -3,11 +3,11 @@ from app.models import db, Match
 # Adds a demo user, you can add other users here if you want
 def seed_matches():
 
-    match1 = Match(match_key=2499719)
-    match2 = Match(match_key=2499807)
-    match3 = Match(match_key=2499830)
-    match4 = Match(match_key=2499987)
-    match5 = Match(match_key=2500097)
+    match1 = Match(match_key=2499719, match_name='Arsenal - Leicester City, 4 - 3')
+    match2 = Match(match_key=2499807, match_name='Tottenham Hotspur - Liverpool, 4 - 1')
+    match3 = Match(match_key=2499830, match_name='Arsenal - Tottenham Hotspur, 2 - 0')
+    match4 = Match(match_key=2499987, match_name='Tottenham Hotspur - Arsenal, 1 - 0')
+    match5 = Match(match_key=2500097, match_name='Tottenham Hotspur - Leicester City, 5 - 4')
 
     db.session.add(match1)
     db.session.add(match2)

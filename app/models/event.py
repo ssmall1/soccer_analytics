@@ -22,12 +22,13 @@ class Event(db.Model):
   event_sec = db.Column(db.Numeric)
   game_week = db.Column(db.Integer)
   date_utc = db.Column(db.String(255))
-  wy_id = db.Column(db.Integer)
-  label = db.Column(db.String(255))
+  label = db.Column(db.String(255), db.ForeignKey('matches.match_name'))
   first_name = db.Column(db.String(255))
   last_name = db.Column(db.String(255))
 
-  match = db.relationship('Match', back_populates="matches")
+  match = db.relationship('Match', foreign_keys=[match_id], back_populates="matches")
+  match_label = db.relationship('Match', foreign_keys=[label], back_populates="matches_label")
+
 
   def to_dict(self):
     return {
@@ -50,7 +51,6 @@ class Event(db.Model):
       "event_sec": self.event_sec,
       "game_week": self.game_week,
       "date_utc": self.date_utc,
-      "wy_id": self.wy_id,
       "label": self.label,
       "first_name": self.first_name,
       "last_name": self.event_sec,
