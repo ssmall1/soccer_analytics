@@ -17,7 +17,7 @@ const NavBar = () => {
         </div>
         <div className="nav-user-links">
           <div>
-            <NavLink to={`/users/${user.id}`} exact={true} activeClassName="active">
+            <NavLink to={`/users/${user.id}`} exact={true} id="nav-profile" activeClassName="active">
               Profile
             </NavLink>
           </div>
@@ -26,9 +26,7 @@ const NavBar = () => {
               Users
             </NavLink>
           </li> */}
-          <div>
-            <LogoutButton />
-          </div>
+          <LogoutButton />
         </div>
     </div>
   );

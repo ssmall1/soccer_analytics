@@ -28,7 +28,7 @@ function UserProfile() {
         <strong>User Id</strong> {userId}
       </li>
       <li>
-        <strong>Username</strong> {user.username}
+        <strong>Name</strong> {user.first_name} {user.last_name}
       </li>
       <li>
         <strong>Email</strong> {user.email}
