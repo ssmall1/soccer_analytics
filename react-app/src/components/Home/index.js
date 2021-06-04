@@ -1,12 +1,11 @@
 import React from "react";
-import LogoutButton from '../auth/LogoutButton';
+import "./Home.css";
 
 const Home = () => {
     return(
-        <>
+        <div className="home-wrapper">
             <h1>SA Home Page</h1>
-            <LogoutButton />
-        </>
+        </div>
     )
 }
 

@@ -1,39 +1,41 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useReducer } from "react";
+import { useSelector } from 'react-redux';
 import { useParams } from "react-router-dom";
+import './UserProfile.css';
 
 function UserProfile() {
-  const [user, setUser] = useState({});
-  // Notice we use useParams here instead of getting the params
-  // From props.
-  const { userId }  = useParams();
+  const user = useSelector(state => state.session.user);
+  // const [user, setUser] = useState({});
+  // // Notice we use useParams here instead of getting the params
+  // // From props.
+  // const { userId }  = useParams();
 
-  useEffect(() => {
-    if (!userId) {
-      return
-    }
-    (async () => {
-      const response = await fetch(`/api/users/${userId}`);
-      const user = await response.json();
-      setUser(user);
-    })();
-  }, [userId]);
+  // useEffect(() => {
+  //   if (!userId) {
+  //     return
+  //   }
+  //   (async () => {
+  //     const response = await fetch(`/api/users/${userId}`);
+  //     const user = await response.json();
+  //     setUser(user);
+  //   })();
+  // }, [userId]);
 
   if (!user) {
     return null;
   }
 
   return (
-    <ul>
-      <li>
-        <strong>User Id</strong> {userId}
-      </li>
-      <li>
-        <strong>Name</strong> {user.first_name} {user.last_name}
-      </li>
-      <li>
-        <strong>Email</strong> {user.email}
-      </li>
-    </ul>
+    <div className="profile-wrapper">
+      <div className="profile-container">
+        <img id="profile-img" src={user.img_url}></img>
+        <div id="profile-name">{user.first_name} {user.last_name}</div>
+      </div>
+
+      <div className="favorites-container">
+        Favorites Go Here.
+      </div>
+    </div>
   );
 }
 export default UserProfile;
