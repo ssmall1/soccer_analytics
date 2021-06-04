@@ -2,13 +2,14 @@ const SET_MATCHES = "matches/SET_MATCHES";
 
 const setMatches = (matches) => ({
     type: SET_MATCHES,
-    payload: matches
+    matches
 });
 
 export const getMatches = () => async (dispatch) => {
-    const response = await fetch('/api/matches');
-    if(response.ok) {
+    const response = await fetch('/api/matches/');
+    if (response.ok) {
         const matches = await response.json();
+        // console.log(matches)
         dispatch(setMatches(matches))
     }
 }

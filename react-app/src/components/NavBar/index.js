@@ -12,7 +12,7 @@ const NavBar = () => {
     <div className="nav-wrapper">
         <div className="nav-home-container">
           <NavLink to="/" exact={true} activeClassName="active">
-            <img id="nav-logo" src={logo}></img>
+            <img id="nav-logo" src={logo} alt="nav-logo"></img>
           </NavLink>
         </div>
         <div className="nav-user-links">
