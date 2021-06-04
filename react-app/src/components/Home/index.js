@@ -17,7 +17,6 @@ const Home = () => {
 
     return(
         <div className="home-wrapper">
-            <h1>SA Home Page</h1>
             <div className="matches-wrapper">
                 {matches.map((match) => {
                     return(

@@ -9,12 +9,16 @@
 }
 
 
-
 .match-container{
     height: 250px;
     width: 350px;
     margin: 20px 20px;
-    background-image: url("../../resources/field.jpg");
+    background-image: 
+        /* linear-gradient(
+            rgba(0, 0, 0, 0.5),
+            rgba(0, 0, 0, 0.5)
+        ), */
+        url("../../resources/field.jpg");
     background-size: contain;
     background-repeat: no-repeat;
     display: flex;
@@ -22,5 +26,8 @@
     align-items: center;
     color: white;
     font-weight: bold;
+    font-size: 18px;
     border-radius: 10%;
 }
+
+
