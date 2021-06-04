@@ -1,0 +1,18 @@
+.nav-wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 2px solid #3a3a3a;
+}
+
+.nav-wrapper > *{
+    padding: 5px 10px
+}
+
+#nav-logo{
+    height: 50px;
+}
+
+.nav-user-links{
+    display: flex;
+}
