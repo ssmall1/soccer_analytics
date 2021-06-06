@@ -10,6 +10,7 @@ import UserProfile from "./components/UserProfile";
 import Splash from "./components/Splash";
 import Footer from "./components/Footer";
 import Home from "./components/Home";
+import Match from "./components/Match";
 import { authenticate } from "./store/session";
 
 function App() {
@@ -64,9 +65,9 @@ function App() {
         <ProtectedRoute path="/" exact={true} >
           <Home />
         </ProtectedRoute>
-        {/* <Route path="/events">
-          <Events />
-        </Route>  */}
+        <Route path="/matches/:matchKey">
+          <Match />
+        </Route> 
       </Switch>
       <Footer />
     </BrowserRouter>

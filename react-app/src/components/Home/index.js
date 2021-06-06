@@ -7,7 +7,6 @@ import "./Home.css";
 const Home = () => {
     const dispatch = useDispatch();
     const matches = useSelector(state => state.matches.matches)
-    console.log(matches)
     
     useEffect(() => {
         dispatch(matchesReducer.getMatches())
@@ -20,8 +19,8 @@ const Home = () => {
             <div className="matches-wrapper">
                 {matches.map((match) => {
                     return(
-                        <Link to={`/matches/${match.match_key}`}>
-                            <div className="match-container" key={match.match_key}>
+                        <Link to={`/matches/${match.match_key}`} key={match.match_key}>
+                            <div className="match-container">
                                 {match.match_name}
                             </div>
                         </Link>
