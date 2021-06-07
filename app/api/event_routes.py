@@ -7,7 +7,7 @@ event_routes = Blueprint('events', __name__)
 
 @event_routes.route('/')
 def allEvents():
-    events1 = Event.query.all()
+    events1 = Event.query.limit(5).all()
     events = [event.to_dict() for event in events1]
     pp = pprint.PrettyPrinter(width=41, compact=True)
     pp.pprint(events)
