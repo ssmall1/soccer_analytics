@@ -36,7 +36,8 @@ app.register_blueprint(auth_routes, url_prefix='/api/auth')
 app.register_blueprint(match_routes, url_prefix='/api/matches')
 app.register_blueprint(event_routes, url_prefix='/api/events')
 db.init_app(app)
-Migrate(app, db)
+Migrate(app, db, compare_type=True)
+
 
 # Application Security
 CORS(app)
