@@ -3,8 +3,9 @@
 }
 
 .match-info{
-    margin: 3vh 3vh;
+    margin: 3vh 6vh;
     display: flex;
+    justify-content: flex-end;
     align-items: center;
 }
 
@@ -15,18 +16,18 @@
 }
 
 #match-page-title{
-    margin-left: 230px;
+    margin-right: 200px;
     font-size: 40px;
     font-weight: bold;
 }
 
-/* .match-chart-wrapper{
+.match-analysis-wrapper{
     display: grid;
     grid-template-columns: repeat(12, 1fr);
-    grid-template-rows: repeat(6, 1fr);
-} */
+}
 
-.pitch-chart-wrapper{
+.pitch-chart-container{
+    grid-column: 7 / 13;
     background-image: url('../../resources/blank_field.png');
     background-repeat: no-repeat;
 }
