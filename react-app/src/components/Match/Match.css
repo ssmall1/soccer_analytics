@@ -1,3 +1,32 @@
 .match-wrapper{
     height: 89vh;
 }
+
+.match-info{
+    margin: 3vh 3vh;
+    display: flex;
+    align-items: center;
+}
+
+#match-page-img{
+    height: 150px;
+    width: 250px;
+    border-radius: 10%;
+}
+
+#match-page-title{
+    margin-left: 230px;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+/* .match-chart-wrapper{
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+} */
+
+.pitch-chart-wrapper{
+    background-image: url('../../resources/blank_field.png');
+    background-repeat: no-repeat;
+}

@@ -7,7 +7,7 @@ const rand = () => Math.round(Math.random() * 20 - 10);
 const data = {
   datasets: [
     {
-      label: 'A dataset',
+      label: '',
       data: [
         { x: rand(), y: rand() },
         { x: rand(), y: rand() },

@@ -9,8 +9,8 @@ def matches():
     return jsonify([match.to_dict() for match in matches])
 
 
-# @match_routes.route('/<int:match_key>')
-# def match(match_key):
-#     match = Match.query.get(match_key)
-#     return match.to_dict()
-
+@match_routes.route('/<int:match_key>')
+def match(match_key):
+    match1= Match.query.filter(Match.match_key == match_key).one()
+    match = match1.to_dict()
+    return jsonify(match)

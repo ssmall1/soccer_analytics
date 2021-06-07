@@ -11,18 +11,14 @@ def allEvents():
     events = [event.to_dict() for event in events1]
     pp = pprint.PrettyPrinter(width=41, compact=True)
     # pp.pprint(events)
-    # return "something"
     return jsonify(events)
 
 
-# @event_routes.route('/<int:match_key>')
-# def matchEvents(match_key):
-#     events1 = Event.query.filter(Event.match_id == match_key).all()
-#     pp = pprint.PrettyPrinter(width=41, compact=True)
-#     # print(events1)
-#     events = [event.to_dict() for event in events1]
-#     pp.pprint(events)
-#     # return events.to_dict()
-#     return "something"
-#     # return events
-
+@event_routes.route('/<int:match_key>')
+def matchEvents(match_key):
+    events1 = Event.query.filter(Event.match_id == match_key).all()
+    pp = pprint.PrettyPrinter(width=41, compact=True)
+    # print(events1)
+    events = [event.to_dict() for event in events1]
+    # pp.pprint(events)
+    return jsonify(events)
