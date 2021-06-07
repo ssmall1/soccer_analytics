@@ -1,12 +1,12 @@
 import {createStore, combineReducers, applyMiddleware, compose } from "redux";
 import thunk from "redux-thunk";
 import session from "./session";
-import event from "./event";
 import matchesReducer from './matches';
+import eventsReducer from './events';
 
 const rootReducer = combineReducers({
     matches: matchesReducer,
-    event,
+    events: eventsReducer,
     session,
 });
 

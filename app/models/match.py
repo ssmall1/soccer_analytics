@@ -7,6 +7,7 @@ class Match(db.Model):
   id = db.Column(db.Integer, primary_key = True)
   match_key = db.Column(db.Integer, unique=True)
   match_name = db.Column(db.String(255), unique=True)
+  match_img = db.Column(db.String(255))
 
   matches = db.relationship('Event', foreign_keys=[Event.match_id], back_populates="match")
   matches_label = db.relationship('Event', foreign_keys=[Event.label], back_populates="match_label")
@@ -17,5 +18,6 @@ class Match(db.Model):
     return {
       "id": self.id,
       "match_key": self.match_key,
-      "match_name": self.match_name
+      "match_name": self.match_name,
+      "match_img": self.match_img
     }

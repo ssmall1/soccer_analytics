@@ -1,6 +1,7 @@
-import React, { useState, useEffect, useReducer } from "react";
+import React from "react";
+// import React, { useState, useEffect, useReducer } from "react";
 import { useSelector } from 'react-redux';
-import { useParams } from "react-router-dom";
+// import { useParams } from "react-router-dom";
 import './UserProfile.css';
 
 function UserProfile() {
@@ -28,7 +29,7 @@ function UserProfile() {
   return (
     <div className="profile-wrapper">
       <div className="profile-container">
-        <img id="profile-img" src={user.img_url}></img>
+        <img id="profile-img" src={user.img_url} alt={`${user.first_name} ${user.last_name} profile`}></img>
         <div id="profile-name">{user.first_name} {user.last_name}</div>
       </div>
 
