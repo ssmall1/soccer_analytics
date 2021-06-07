@@ -4,7 +4,6 @@ class Event(db.Model):
   __tablename__ = 'events'
 
   id = db.Column(db.Integer, primary_key = True)
-  event_id_x = db.Column(db.Integer)
   sub_event_name = db.Column(db.String(255))
   tag_1 = db.Column(db.Float)
   tag_2 = db.Column(db.Float)
@@ -18,9 +17,7 @@ class Event(db.Model):
   match_id = db.Column(db.Integer, db.ForeignKey('matches.match_key'))
   event_name = db.Column(db.String(255))
   team_id = db.Column(db.Integer)
-  match_period = db.Column(db.String(255))
   event_sec = db.Column(db.Float)
-  game_week = db.Column(db.Integer)
   date_utc = db.Column(db.String(255))
   label = db.Column(db.String(255), db.ForeignKey('matches.match_name'))
   first_name = db.Column(db.String(255))
@@ -33,7 +30,6 @@ class Event(db.Model):
   def to_dict(self):
     return {
       "id": self.id,
-      "event_id_x": self.event_id_x,
       "sub_event_name": self.sub_event_name,
       "tag_1": self.tag_1,
       "tag_2": self.tag_2,
@@ -47,14 +43,9 @@ class Event(db.Model):
       "match_id": self.match_id,
       "event_name": self.event_name,
       "team_id": self.team_id,
-      "match_period": self.match_period,
       "event_sec": self.event_sec,
-      "game_week": self.game_week,
       "date_utc": self.date_utc,
       "label": self.label,
       "first_name": self.first_name,
-      "last_name": self.event_sec,
-
-
-
+      "last_name": self.last_name,
     }
