@@ -1,21 +1,28 @@
+import pprint
 from flask import Blueprint, jsonify
 from app.models import Event
 
+
 event_routes = Blueprint('events', __name__)
 
-# @event_routes.route('/')
-# def allEvents():
-#     events = Events.query.all()
-#     return jsonify([event.to_dict() for event in events])
-
-
-@event_routes.route('/<int:match_key>')
-def matchEvents(match_key):
-    events1 = Event.query.filter(Event.match_id == match_key).all()
+@event_routes.route('/')
+def allEvents():
+    events1 = Event.query.all()
     events = [event.to_dict() for event in events1]
-    # user = User.query.filter(User.username == currentuser).first().email
-    print('----------------------------------------------')
-    print("EVENTS", events)
-    # return events.to_dict()
+    pp = pprint.PrettyPrinter(width=41, compact=True)
+    pp.pprint(events)
     return "something"
+    # return jsonify([event.to_dict() for event in events])
+
+
+# @event_routes.route('/<int:match_key>')
+# def matchEvents(match_key):
+#     events1 = Event.query.filter(Event.match_id == match_key).all()
+#     pp = pprint.PrettyPrinter(width=41, compact=True)
+#     # print(events1)
+#     events = [event.to_dict() for event in events1]
+#     pp.pprint(events)
+#     # return events.to_dict()
+#     return "something"
+#     # return events
 

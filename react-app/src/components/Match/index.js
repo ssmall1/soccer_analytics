@@ -10,8 +10,12 @@ const Match = () => {
     const dispatch = useDispatch();
     const events = useSelector(state => state.events.events)
     
+    // useEffect(() => {
+    //     dispatch(eventsReducer.getMatchEvents(matchKey))
+    // }, [])
+
     useEffect(() => {
-        dispatch(eventsReducer.getEvents(matchKey))
+        dispatch(eventsReducer.getEvents())
     }, [])
 
     if (!events) return null;
