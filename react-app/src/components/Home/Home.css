@@ -13,20 +13,17 @@
     height: 250px;
     width: 350px;
     margin: 30px 20px;
-    background-image: 
-        /* linear-gradient(
-            rgba(0, 0, 0, 0.5),
-            rgba(0, 0, 0, 0.5)
-        ), */
-        url("../../resources/field.jpg");
-    background-size: contain;
-    background-repeat: no-repeat;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    color: white;
     font-weight: bold;
     font-size: 18px;
+}
+
+#match-img{
+    height: 250px;
+    width: 350px;
     border-radius: 10%;
 }
 
