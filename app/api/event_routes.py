@@ -10,9 +10,9 @@ def allEvents():
     events1 = Event.query.limit(5).all()
     events = [event.to_dict() for event in events1]
     pp = pprint.PrettyPrinter(width=41, compact=True)
-    pp.pprint(events)
-    return "something"
-    # return jsonify([event.to_dict() for event in events])
+    # pp.pprint(events)
+    # return "something"
+    return jsonify(events)
 
 
 # @event_routes.route('/<int:match_key>')

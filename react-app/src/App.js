@@ -65,9 +65,9 @@ function App() {
         <ProtectedRoute path="/" exact={true} >
           <Home />
         </ProtectedRoute>
-        <Route path="/matches/:matchKey">
+        <ProtectedRoute Route path="/matches/:matchKey" exact={true}>
           <Match />
-        </Route> 
+        </ProtectedRoute> 
       </Switch>
       <Footer />
     </BrowserRouter>

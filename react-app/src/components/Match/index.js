@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux';
 import * as eventsReducer from "../../store/events";
+import EventChart from "../EventChart";
 import "./Match.css";
 
 const Match = () => {
@@ -23,6 +24,7 @@ const Match = () => {
     return(
         <div className="match-wrapper">
             <p>Hello</p>
+            <EventChart />
         </div>
     )
 }
