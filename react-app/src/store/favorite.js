@@ -1,5 +1,12 @@
-const POST_FAVORITE = "favorites/POST_FAVORITE";
 const GET_FAVORITES = "favorites/GET_FAVORITES";
+const POST_FAVORITE = "favorites/POST_FAVORITE";
+
+const setFavorites = (favorites) => {
+    return{
+        type: GET_FAVORITES,
+        favorites
+    }
+}
 
 const setFavorite = (match) => {
     return{
@@ -8,11 +15,13 @@ const setFavorite = (match) => {
     }
 }
 
-const setFavorites = (user) => {
-    return{
-        type: GET_FAVORITES,
-        user
-    }
+export const getFavorites = (userId) => async (dispatch) => {
+    const response = await fetch(`/api/favorites/${userId}`);
+
+    if (response.ok) {
+        const favorites = await response.json();
+        dispatch(setFavorites(favorites))
+    } 
 }
 
 export const postFavorite = (payload) => async (dispatch) => {
@@ -35,19 +44,16 @@ export const postFavorite = (payload) => async (dispatch) => {
     }
 }
 
-
-// export const getFavorites = (userId) => async (dispatch) => {
-//     const response = 
-// }
-
-
 const initialState = {};
 // const initialState = {favorites: []};
 
 const favoriteReducer = (state = initialState, action) => {
     let newState;
     switch (action.type) {
-        // make get 
+        case GET_FAVORITES:
+            newState = { ...state }
+            newState.favorites = action.favorites
+            return newState
         case POST_FAVORITE:
             newState = { ...state }
             newState.favorites = [...state.favorites, action.favorite]

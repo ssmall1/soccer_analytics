@@ -18,6 +18,7 @@ const Match = () => {
     useEffect(() => {
         dispatch(eventsReducer.getMatchEvents(matchKey));
         dispatch(matchesReducer.getMatch(matchKey));
+        dispatch(favoriteReducer.getFavorites(user.id))
     }, [])
 
     useEffect(() => {
