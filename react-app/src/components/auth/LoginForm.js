@@ -75,7 +75,7 @@ const LoginForm = () => {
             <a href="/sign-up" id="signup-link"> Sign Up </a>
         </div>
         <div className="submit-wrapper">
-          <button className='signup-signin-btn' type="submit">Sign Up</button>
+          <button className='signup-signin-btn' type="submit">Login</button>
           <button className='signup-signin-btn' type="submit" onClick={demoUser}>Demo User</button>
         </div>
         </div>
