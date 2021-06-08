@@ -1,5 +1,5 @@
 .match-wrapper{
-    height: 89vh;
+    height: 100vh;
 }
 
 #match-favorite-btn{
@@ -34,4 +34,5 @@
     grid-column: 7 / 13;
     background-image: url('../../resources/blank_field.png');
     background-repeat: no-repeat;
+    height: 74vh;
 }

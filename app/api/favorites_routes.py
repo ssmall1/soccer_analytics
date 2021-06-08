@@ -30,4 +30,5 @@ def remove_favorite(favoriteId):
 
     db.session.delete(favorite)
     db.session.commit()
-    return favorite.to_dict
+    # return favorite.to_dict
+    

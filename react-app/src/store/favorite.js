@@ -65,7 +65,6 @@ export const deleteFavorite = (favoriteId) => async (dispatch) => {
 }
 
 const initialState = {};
-// const initialState = {favorites: []};
 
 const favoriteReducer = (state = initialState, action) => {
     let newState;

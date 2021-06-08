@@ -31,13 +31,31 @@ const data = {
 
 const options = {
   scales: {
-    yAxes: [
-      {
-        ticks: {
-          beginAtZero: true,
-        },
+    xAxes: {
+      grid: {
+        display: false,
       },
-    ],
+      gridLines: {
+        display: true,
+        color: 'rgb(255,255,255)',
+      },
+      ticks: {
+        display: false
+      }
+    },
+    yAxes: {
+      grid: {
+        display: false,
+      },
+      gridLines: {
+        display: true,
+        color: 'rgb(255,255,255)',
+      },
+      ticks: {
+        display: false,
+        beginAtZero: true,
+      }
+    },
   },
   responsive:true,
   maintainAspectRatio: false
