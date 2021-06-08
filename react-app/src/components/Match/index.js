@@ -30,7 +30,7 @@ const Match = () => {
 
     async function handleFavorite() {
         const userId = user.id;
-        const matchId = matchKey;
+        const matchId = match.id;
         const payload = {
             userId,
             matchId
