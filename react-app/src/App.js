@@ -11,6 +11,7 @@ import Splash from "./components/Splash";
 import Footer from "./components/Footer";
 import Home from "./components/Home";
 import Match from "./components/Match";
+import PageNotFound from "./components/PageNotFound";
 import { authenticate } from "./store/session";
 
 function App() {
@@ -67,7 +68,10 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute Route path="/matches/:matchKey" exact={true}>
           <Match />
-        </ProtectedRoute> 
+        </ProtectedRoute>
+        <Route>
+          <PageNotFound />
+        </Route>
       </Switch>
       <Footer />
     </BrowserRouter>

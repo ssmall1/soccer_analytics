@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { login } from "../../store/session";
-import pitchImg from "../../resources/pitch.jpg";
+import forestPitch from "../../resources/forest-pitch.jpg";
 import './Form.css';
 
 const LoginForm = () => {
@@ -41,7 +41,7 @@ const LoginForm = () => {
   return (
     <div className='auth-wrapper'>
       <div className='login-image-container'>
-          <img alt='ocean pitch' id='form-image' src={pitchImg}></img>
+          <img alt='ocean pitch' id='form-image' src={forestPitch}></img>
         </div>
 
       <form className="auth-form-wrapper" onSubmit={onLogin}>
