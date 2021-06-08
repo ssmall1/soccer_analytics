@@ -46,7 +46,7 @@ const Match = () => {
             <div className="match-info">
                 <button id="match-favorite-btn" onClick={handleFavorite}>Favorite</button>
                 <div id="match-page-title">{match.match_name}</div>
-                <img id="match-page-img" src={match.match_img}/>
+                <img id="match-page-img" src={match.match_img} alt={`${match.match_name}`}/>
             </div>
             <div className="match-analysis-wrapper">
                 <div className="analysis-selector-container">

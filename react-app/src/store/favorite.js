@@ -8,7 +8,8 @@ const setFavorite = (match) => {
 }
 
 export const postFavorite = (payload) => async (dispatch) => {
-    const response = await fetch(`/api/favorites/${payload.userId}`, {
+    
+    const response = await fetch('/api/favorites', {
         method: 'POST',
         body: JSON.stringify(payload),
         headers: {
