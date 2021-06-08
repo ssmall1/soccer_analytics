@@ -2,6 +2,10 @@
     height: 89vh;
 }
 
+#match-favorite-btn{
+    margin-right: 20px;
+}
+
 .match-info{
     margin: 3vh 6vh;
     display: flex;
