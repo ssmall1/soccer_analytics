@@ -3,7 +3,25 @@
 }
 
 #match-favorite-btn, #match-unfavorite-btn{
-    margin-right: 20px;
+    margin-right: 40px;
+    font-size: 17px;
+    transition: 0.4s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 25px;
+    padding: 4px 15px;
+    border-radius: 10px;
+    border: none;
+    background-color: #008fc8;
+    color: white;
+    height: 37px;
+}
+
+#match-favorite-btn:hover, #match-unfavorite-btn:hover{
+    color: #008fc8;
+    border: 2px solid #008fc8;
+    background-color: rgba(240, 248, 255, 0.836);
 }
 
 .match-info{
