@@ -81,7 +81,7 @@ const favoriteReducer = (state = initialState, action) => {
             newState = { ...state }
 
             const index = newState.favorites.indexOf(action.favorite)
-            newState.favorites.splice(index,1)
+            newState.favorites.splice(index, 1)
 
             return newState
         default:
