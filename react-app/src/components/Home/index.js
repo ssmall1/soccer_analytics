@@ -21,7 +21,7 @@ const Home = () => {
                     return(
                         <Link to={`/matches/${match.match_key}`} key={match.match_key}>
                             <div className="match-container">
-                                <img id="match-img" src={match.match_img}></img>
+                                <img id="match-img" src={match.match_img} alt={`${match.match_name}`}/>
                                 <div>{match.match_name}</div>
                             </div>
                         </Link>

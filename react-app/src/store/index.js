@@ -3,8 +3,10 @@ import thunk from "redux-thunk";
 import session from "./session";
 import matchesReducer from './matches';
 import eventsReducer from './events';
+import favoriteReducer from './favorite';
 
 const rootReducer = combineReducers({
+    favorites: favoriteReducer,
     matches: matchesReducer,
     events: eventsReducer,
     session,
