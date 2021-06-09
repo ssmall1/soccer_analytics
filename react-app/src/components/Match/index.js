@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux';
 import * as eventsReducer from "../../store/events";
@@ -21,7 +21,7 @@ const Match = () => {
     useEffect(() => {
         dispatch(eventsReducer.getMatchEvents(matchKey));
         dispatch(matchesReducer.getMatch(matchKey));
-        dispatch(favoriteReducer.getFavorites(user.id))
+        dispatch(favoriteReducer.getFavorites(user.id));
         dispatch(eventsReducer.getEvents());
     }, [])
 
@@ -35,6 +35,7 @@ const Match = () => {
         if (favorite?.match_id === match.id) {
             return favorite
         }
+        return favorite
     })
 
     let currentFavorite = currentFavorite1[0];

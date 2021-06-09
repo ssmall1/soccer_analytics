@@ -17,14 +17,13 @@ def get_favorites(match_id):
 @comment_routes.route('/', methods=["POST"])
 @login_required
 def post_comment():
-  form = CommentForm()
-  form['csrf_token'].data = request.cookies['csrf_token']
-  if form.validate_on_submit():
-    comment = Comment(
-        user_id,
-        match_id,
-        content = form.data['content'],
+    form = CommentForm()
+    new_comment = Comment(
+        user_id = form.user_id.data,
+        match_key = form.match_key.data,
+        content = form.content.data
     )
-    db.session.add(comment)
+
+    db.session.add(new_comment)
     db.session.commit()
-    return comment.to_dict()
+    return new_comment.to_dict()

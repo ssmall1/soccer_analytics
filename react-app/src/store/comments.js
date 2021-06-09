@@ -25,13 +25,13 @@ export const getComments = (matchId) => async (dispatch) => {
 }
 
 export const postComment = (payload) => async (dispatch) => {
-    const { userId, matchId, content } = payload;
+    const { userId, matchKey, content } = payload;
     
     const response = await fetch('/api/comments/', {
         method: 'POST',
         body: JSON.stringify({
             user_id: userId,
-            match_id: matchId,
+            match_key: matchKey,
             content
         }),
         headers: {

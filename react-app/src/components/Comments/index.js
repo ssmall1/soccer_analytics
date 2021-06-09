@@ -9,9 +9,11 @@ const Comments = () => {
 
     const user = useSelector(state => state.session.user);
     const userId = user.id;
+    const match = useSelector(state => state.matches.match);
+    const matchKey = match.match_key;
 
     useEffect(() => {
-        
+        // dispatch(commentReducer.getComments());
     })
 
     const updateComment = (e) => {
@@ -25,7 +27,7 @@ const Comments = () => {
 
         const payload = {
             userId,
-            // matchId,
+            matchKey,
             content,
         }
 
