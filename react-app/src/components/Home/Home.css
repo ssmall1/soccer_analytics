@@ -19,6 +19,7 @@
     font-weight: bold;
     font-size: 18px;
     transition: transform .2s;
+    cursor: pointer;
 }
 
 .match-container:hover{

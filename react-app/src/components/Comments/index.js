@@ -13,8 +13,8 @@ const Comments = () => {
     const comments = useSelector(state => state.comments.comments)
     const matchKey = match.match_key;
     
-    useEffect(() => {
-        dispatch(commentReducer.getComments(matchKey));
+    useEffect(async () => {
+        await dispatch(commentReducer.getComments(matchKey));
     }, [dispatch])
 
     const updateComment = (e) => {
@@ -35,8 +35,27 @@ const Comments = () => {
         dispatch(commentReducer.postComment(payload));
     }
 
+    async function handleDeleteComment(comment){
+        await dispatch(commentReducer.deleteComment(comment));
+        await dispatch(commentReducer.getComments(matchKey))
+    }
+
     if (!comments) {
         return null;
+    }
+
+    let renderedComments = [];
+    if (comments) {
+
+        function pickComments(comments) {
+            for (let i = 0; i < 5; i++) {
+                let comment = comments[i]
+                if (comment) {
+                renderedComments.push(comment); 
+                }
+            }
+        }
+        pickComments(comments);
     }
 
     return(
@@ -59,12 +78,13 @@ const Comments = () => {
             </div>
 
             <div className="comments-container">
-                {comments.map((comment) => {
+                {renderedComments.map((comment) => {
                     return(
                         <div id="comment-container" key={comment.id}>
                             <div id="comment">
                                 {comment.content}
                             </div>
+                            {comment.user_id === user.id ? <button id="delete-comment" onClick={() => handleDeleteComment(comment)}>Delete</button> : <></>}
                         </div>
                     )
                 })}

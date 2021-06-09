@@ -18,12 +18,15 @@ const Match = () => {
     const user = useSelector(state => state.session.user);
     const favorites = useSelector(state => state.favorites.favorites);
 
+    useEffect(async () => {
+        await dispatch(matchesReducer.getMatch(matchKey));
+    }, [dispatch])
+
     useEffect(() => {
         dispatch(eventsReducer.getMatchEvents(matchKey));
-        dispatch(matchesReducer.getMatch(matchKey));
         dispatch(favoriteReducer.getFavorites(user.id));
         dispatch(eventsReducer.getEvents());
-    }, [])
+    }, [match])
 
     if (!events) return null;
     
@@ -39,7 +42,6 @@ const Match = () => {
     })
 
     let currentFavorite = currentFavorite1[0];
-    console.log(currentFavorite, "currentFavorite")
 
     async function handleFavorite(e) {
         e.preventDefault();

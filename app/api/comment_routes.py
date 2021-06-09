@@ -27,3 +27,16 @@ def post_comment():
     db.session.add(new_comment)
     db.session.commit()
     return new_comment.to_dict()
+
+
+@comment_routes.route("/<int:comment_id>", methods=["DELETE"])
+@login_required
+def remove_comment(comment_id):
+    comment = Comment.query.get(comment_id)
+
+    db.session.delete(comment)
+    db.session.commit()
+    my_comment = []
+    my_comment.append(comment.to_dict())
+    return jsonify(my_comment)
+

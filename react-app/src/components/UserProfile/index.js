@@ -1,12 +1,13 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import './UserProfile.css';
 import * as matchesReducer from "../../store/matches";
 import * as favoriteReducer from "../../store/favorite";
 
 function UserProfile() {
   const dispatch = useDispatch();
+  const history = useHistory();
   const user = useSelector(state => state.session.user);
   const favorites = useSelector(state => state.favorites.favorites)
   const matches = useSelector(state => state.matches.matches)
@@ -34,6 +35,12 @@ function UserProfile() {
     userMatches.push(matches.filter((match) => match.id === favorites[i].match_id)[0])
   }
 
+  async function handleSetMatch(match_key){
+    console.log(match_key)
+    await dispatch(matchesReducer.getMatch(match_key));
+    history.push(`/matches/${match_key}`)
+  }
+
   return (
     <div className="profile-wrapper">
       <div className="profile-container">
@@ -48,12 +55,10 @@ function UserProfile() {
         <div className="favorite-matches-container">
           {userMatches.map((match) => {
               return(
-                  <Link to={`/matches/${match.match_key}`} key={match.match_key}>
-                      <div className="profile-match-container">
+                      <div className="profile-match-container" key={match.match_key} onClick={() => handleSetMatch(match.match_key)}>
                           <img id="profile-match-img" src={match.match_img} alt={`${match.match_name}`}/>
                           <div>{match.match_name}</div>
                       </div>
-                  </Link>
               )
           })}
         </div>
