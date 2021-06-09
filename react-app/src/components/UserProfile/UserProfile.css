@@ -30,8 +30,9 @@
     grid-row: 1 / 5;
     border: 3px solid #008fc8;
     width: 450px;
-    margin: 20px 20px;
+    margin: 30px 30px;
     overflow-y: scroll;
+    overflow-x: hidden;
     display: flex;
     border-radius: 7px;
     flex-direction: column;
@@ -40,7 +41,7 @@
 .favorites-title-container{
     position: fixed;
     height: 50px;
-    width: 440px;
+    width: 441px;
     border-bottom: 1px solid #3a3a3a;
     background-color: white;
     display: flex;
@@ -60,7 +61,7 @@
 }
 
 .profile-match-container{
-    margin: 20px 26px;
+    padding: 20px 0px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -71,7 +72,8 @@
 }
 
 .profile-match-container:hover{
-    transform: scale(1.02);
+    transform: scale(1.01);
+    background-color: rgb(240, 248, 255, 0.836);
     z-index: 0;
 }
 

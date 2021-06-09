@@ -8,3 +8,7 @@
     padding-right: 20px;
     background-color: rgb(240, 248, 255, 0.836);
 }
+
+.footer-wrapper > a{
+    margin: 0px 5px;
+}
