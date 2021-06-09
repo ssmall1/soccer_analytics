@@ -6,10 +6,10 @@ from app.forms import CommentForm
 comment_routes = Blueprint('comments', __name__)
 
 
-@comment_routes.route('/<int:match_key>')
+@comment_routes.route('/<int:key>')
 @login_required
-def get_comments(match_key):
-    res = Comment.query.filter(Comment.match_key == match_key).all()
+def get_comments(key):
+    res = Comment.query.filter(Comment.match_key == key).all()
     comments = [comment.to_dict() for comment in res]
     return jsonify(comments)
 

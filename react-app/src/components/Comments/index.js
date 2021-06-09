@@ -10,11 +10,12 @@ const Comments = () => {
     const user = useSelector(state => state.session.user);
     const userId = user.id;
     const match = useSelector(state => state.matches.match);
+    const comments = useSelector(state => state.comments)
     const matchKey = match.match_key;
 
     useEffect(() => {
-        // dispatch(commentReducer.getComments(matchKey));
-    })
+        dispatch(commentReducer.getComments(matchKey));
+    }, [dispatch])
 
     const updateComment = (e) => {
         setCommentContent(e.target.value);
@@ -34,9 +35,9 @@ const Comments = () => {
         dispatch(commentReducer.postComment(payload));
     }
 
-    // if (!comments) {
-    //     return null;
-    // }
+    if (!comments) {
+        return null;
+    }
 
     return(
         <div className="commments-wrapper">

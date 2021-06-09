@@ -16,7 +16,7 @@ const setComment = (comment) => {
 }
 
 export const getComments = (matchKey) => async (dispatch) => {
-    const response = await fetch(`/api/commments/${matchKey}`);
+    const response = await fetch(`/api/comments/${matchKey}`);
 
     if (response.ok) {
         const comments = await response.json();
