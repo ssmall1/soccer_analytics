@@ -19,7 +19,6 @@ def post_favorite():
 
     db.session.add(favorite)
     db.session.commit()
-
     return favorite.to_dict()
 
 
@@ -30,7 +29,6 @@ def remove_favorite(favoriteId):
 
     db.session.delete(favorite)
     db.session.commit()
-    # return favorite.to_dict
     my_favorite = []
     my_favorite.append(favorite.to_dict())
     return jsonify(my_favorite)

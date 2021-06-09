@@ -10,9 +10,9 @@ const Comments = () => {
     const user = useSelector(state => state.session.user);
     const userId = user.id;
     const match = useSelector(state => state.matches.match);
-    const comments = useSelector(state => state.comments)
+    const comments = useSelector(state => state.comments.comments)
     const matchKey = match.match_key;
-
+    
     useEffect(() => {
         dispatch(commentReducer.getComments(matchKey));
     }, [dispatch])
@@ -40,9 +40,9 @@ const Comments = () => {
     }
 
     return(
-        <div className="commments-wrapper">
+        <div className="comments-wrapper">
             <div className="comment-form-container">
-                <form onSubmit={handleCommentSubmit}>
+                <form id="comment-form" onSubmit={handleCommentSubmit}>
                     <input
                         id="comment-input"
                         type="textbox"
@@ -59,13 +59,15 @@ const Comments = () => {
             </div>
 
             <div className="comments-container">
-                {/* {comments.map((comment) => {
+                {comments.map((comment) => {
                     return(
-                        <div id="comment" key={comment.id}>
-                            {comment.content}
+                        <div id="comment-container" key={comment.id}>
+                            <div id="comment">
+                                {comment.content}
+                            </div>
                         </div>
                     )
-                })} */}
+                })}
             </div>
         </div>
     )
