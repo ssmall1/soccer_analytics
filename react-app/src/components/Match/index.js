@@ -5,6 +5,7 @@ import * as eventsReducer from "../../store/events";
 import * as matchesReducer from "../../store/matches";
 import * as favoriteReducer from "../../store/favorite";
 import EventChart from "../EventChart";
+import Comments from "../Comments";
 import "./Match.css";
 
 const Match = () => {
@@ -38,7 +39,8 @@ const Match = () => {
 
     let currentFavorite = currentFavorite1[0];
     
-    async function handleFavorite() {
+    async function handleFavorite(e) {
+        e.preventDefault();
         const userId = user.id;
         const matchId = match.id;
         const payload = {
@@ -48,7 +50,8 @@ const Match = () => {
         await dispatch(favoriteReducer.postFavorite(payload));
     }
 
-    async function handleRemoveFavorite() {
+    async function handleRemoveFavorite(e) {
+        e.preventDefault();
         await dispatch(favoriteReducer.deleteFavorite(currentFavorite));
         await dispatch(favoriteReducer.getFavorites(user.id))
     }
@@ -71,6 +74,8 @@ const Match = () => {
                     <EventChart id="pitch-chart"/>
                 </div>
             </div>
+
+            <Comments />
         </div>
     )
 }
