@@ -41,7 +41,7 @@
     position: fixed;
     height: 50px;
     width: 440px;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid #3a3a3a;
     background-color: white;
     display: flex;
     justify-content: center;

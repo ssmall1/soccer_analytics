@@ -21,15 +21,12 @@ const Match = () => {
         dispatch(eventsReducer.getMatchEvents(matchKey));
         dispatch(matchesReducer.getMatch(matchKey));
         dispatch(favoriteReducer.getFavorites(user.id))
-    }, [])
-    
-    useEffect(() => {
         dispatch(eventsReducer.getEvents());
     }, [])
 
     if (!events) return null;
     
-    if(!match) return null;
+    if (!match) return null;
     
     if (!favorites) return null;
 
@@ -61,7 +58,8 @@ const Match = () => {
             <div className="match-info">
                 { currentFavorite ? 
                     <button id="match-unfavorite-btn" onClick={handleRemoveFavorite}>Favorited</button> 
-                    : <button id="match-favorite-btn" onClick={handleFavorite}>Favorite</button> }
+                    : <button id="match-favorite-btn" onClick={handleFavorite}>Favorite</button> 
+                }
                 <div id="match-page-title">{match.match_name}</div>
                 <img id="match-page-img" src={match.match_img} alt={`${match.match_name}`}/>
             </div>
