@@ -58,8 +58,10 @@ const Match = () => {
     return(
         <div className="match-wrapper">
             <div className="match-info">
-                <button id="match-favorite-btn" onClick={handleFavorite}>Favorite</button>
-                <button id="match-unfavorite-btn" onClick={handleRemoveFavorite}>Favorited</button>
+                { currentFavorite ? <button id="match-unfavorite-btn" onClick={handleRemoveFavorite}>Favorited</button> : <button id="match-favorite-btn" onClick={handleFavorite}>Favorite</button>
+                // <button id="match-favorite-btn" onClick={handleFavorite}>Favorite</button>
+                // <button id="match-unfavorite-btn" onClick={handleRemoveFavorite}>Favorited</button>
+                }
                 <div id="match-page-title">{match.match_name}</div>
                 <img id="match-page-img" src={match.match_img} alt={`${match.match_name}`}/>
             </div>
