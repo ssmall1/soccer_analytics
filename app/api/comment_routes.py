@@ -6,7 +6,7 @@ from app.forms import CommentForm
 comment_routes = Blueprint('comments', __name__)
 
 
-# @comment_routes.route('/add', methods=["POST"])
+@comment_routes.route('/', methods=["POST"])
 @login_required
 def post_comment():
   form = CommentForm()
