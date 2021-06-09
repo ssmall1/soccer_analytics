@@ -9,10 +9,10 @@ const setFavorites = (favorites) => {
     }
 }
 
-const setFavorite = (match) => {
+const setFavorite = (favorite) => {
     return{
         type: POST_FAVORITE,
-        match
+        favorite
     }
 }
 
@@ -52,15 +52,15 @@ export const postFavorite = (payload) => async (dispatch) => {
     }
 }
 
-export const deleteFavorite = (favoriteId) => async (dispatch) => {
-    const response = await fetch(`/api/favorites/${favoriteId}`, {
+export const deleteFavorite = (currentFavorite) => async (dispatch) => {
+    const response = await fetch(`/api/favorites/${currentFavorite.id}`, {
         method: 'DELETE',
         headers: { 'Content-Type': 'application/json' }
     })
 
     if (response.ok) {
-        dispatch(setDeletedFavorite(favoriteId))
-        return favoriteId
+        dispatch(setDeletedFavorite(currentFavorite))
+        return currentFavorite
     } 
 }
 
@@ -79,7 +79,10 @@ const favoriteReducer = (state = initialState, action) => {
             return newState;
         case DELETE_FAVORITE:
             newState = { ...state }
-            delete newState[action.favorite]
+
+            const index = newState.favorites.indexOf(action.favorite)
+            newState.favorites.splice(index,1)
+
             return newState
         default:
             return state;

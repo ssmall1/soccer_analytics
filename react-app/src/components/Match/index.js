@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux';
 import * as eventsReducer from "../../store/events";
@@ -8,9 +8,12 @@ import EventChart from "../EventChart";
 import "./Match.css";
 
 const Match = () => {
+    const dispatch = useDispatch();
     const matchKeyStr = useParams();
     const matchKey = parseInt(matchKeyStr.matchKey, 10);
-    const dispatch = useDispatch();
+
+    // const [favoritedState, setFavoriteState] = useState("false")
+
     const events = useSelector(state => state.events.events);
     const match = useSelector(state => state.matches.match);
     const user = useSelector(state => state.session.user);
@@ -35,6 +38,7 @@ const Match = () => {
     let currentFavorite1 = favorites.filter((favorite) => {
         if (favorite?.match_id === match.id) {
             return favorite
+            // setFavoriteState="true"
         }
     })
 
@@ -51,8 +55,9 @@ const Match = () => {
     }
 
     async function handleRemoveFavorite() {
-        const favoriteId = currentFavorite.id;
-        await dispatch(favoriteReducer.deleteFavorite(favoriteId));
+        // const favoriteId = currentFavorite.id;
+        await dispatch(favoriteReducer.deleteFavorite(currentFavorite));
+        await dispatch(favoriteReducer.getFavorites(user.id))
     }
 
     return(
