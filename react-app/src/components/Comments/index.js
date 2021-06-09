@@ -13,7 +13,7 @@ const Comments = () => {
     const matchKey = match.match_key;
 
     useEffect(() => {
-        // dispatch(commentReducer.getComments());
+        // dispatch(commentReducer.getComments(matchKey));
     })
 
     const updateComment = (e) => {

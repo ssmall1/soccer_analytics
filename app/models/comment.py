@@ -6,7 +6,7 @@ class Comment(db.Model):
   id = db.Column(db.Integer, primary_key = True)
   user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
   content = db.Column(db.String(255), nullable=False)
-  match_key = db.Column(db.Integer, db.ForeignKey('matches.id'), nullable=False)
+  match_key = db.Column(db.Integer, db.ForeignKey('matches.match_key'), nullable=False)
 
   user = db.relationship('User', back_populates="comment")
   match = db.relationship('Match', back_populates="comment")
