@@ -33,7 +33,7 @@ const Match = () => {
     if (!favorites) return null;
 
     let currentFavorite1 = favorites.filter((favorite) => {
-        if (favorite.match_id === match.id) {
+        if (favorite?.match_id === match.id) {
             return favorite
         }
     })
