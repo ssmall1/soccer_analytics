@@ -59,6 +59,7 @@ const LoginForm = () => {
             placeholder="Email"
             value={email}
             onChange={updateEmail}
+            required
           />
         </div>
         <div>
@@ -70,6 +71,7 @@ const LoginForm = () => {
             placeholder="Password"
             value={password}
             onChange={updatePassword}
+            required
           />
           <div className='redirect-text'>Don't Have an Account?
             <a href="/sign-up" id="signup-link"> Sign Up </a>

@@ -69,6 +69,7 @@ const Comments = () => {
                         onChange={updateComment}
                         value={commentContent}
                         placeholder="This game was..."
+                        required
                     >
                     </input>
                     <div className="submit-comment-container">
