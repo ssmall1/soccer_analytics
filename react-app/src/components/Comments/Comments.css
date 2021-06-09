@@ -53,3 +53,23 @@
     border-bottom: 1px solid #3a3a3a;
     width: 35em;
 }
+
+#delete-comment{
+    color: #008fc8;
+    border: 2px solid #008fc8;
+    background-color: white;
+    transition: 0.4s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 20px;
+    padding: 10px 13px;
+    border-radius: 10px;
+    height: 30px;
+}
+
+#delete-comment:hover{
+    border: none;
+    background-color: #008fc8;
+    color: white;
+}
