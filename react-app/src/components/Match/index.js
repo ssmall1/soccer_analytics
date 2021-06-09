@@ -33,13 +33,14 @@ const Match = () => {
 
     let currentFavorite1 = favorites.filter((favorite) => {
         if (favorite?.match_id === match.id) {
-            return favorite
+            return favorite;
         }
-        return favorite
+        return null;
     })
 
     let currentFavorite = currentFavorite1[0];
-    
+    console.log(currentFavorite, "currentFavorite")
+
     async function handleFavorite(e) {
         e.preventDefault();
         const userId = user.id;

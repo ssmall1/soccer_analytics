@@ -8,7 +8,7 @@ comment_routes = Blueprint('comments', __name__)
 
 @comment_routes.route('/<int:match_id>')
 @login_required
-def get_favorites(match_id):
+def get_comments(match_id):
     res = Comment.query.filter(Comment.match_id == match_id).all()
     comments = [comment.to_dict() for comment in res]
     return jsonify(comments)
