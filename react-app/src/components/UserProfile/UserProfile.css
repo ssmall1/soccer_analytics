@@ -31,7 +31,7 @@
     border: 3px solid #008fc8;
     width: 450px;
     margin: 30px 30px;
-    overflow-y: scroll;
+    overflow-y: auto;
     overflow-x: hidden;
     display: flex;
     border-radius: 7px;
@@ -41,13 +41,14 @@
 .favorites-title-container{
     position: fixed;
     height: 50px;
-    width: 441px;
+    width: 451px;
     border-bottom: 1px solid #3a3a3a;
     background-color: white;
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 1;
+    border-radius: 3px;
 }
 
 #favorites-title{
@@ -90,7 +91,7 @@
 
 /* Track */
 ::-webkit-scrollbar-track {
-background: #b6babe;
+background: #d3d6da;
 border-radius: 5px;
 scroll-margin-right: 3px;
 }
