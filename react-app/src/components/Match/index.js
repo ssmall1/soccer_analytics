@@ -12,8 +12,6 @@ const Match = () => {
     const matchKeyStr = useParams();
     const matchKey = parseInt(matchKeyStr.matchKey, 10);
 
-    // const [favoritedState, setFavoriteState] = useState("false")
-
     const events = useSelector(state => state.events.events);
     const match = useSelector(state => state.matches.match);
     const user = useSelector(state => state.session.user);
@@ -38,7 +36,6 @@ const Match = () => {
     let currentFavorite1 = favorites.filter((favorite) => {
         if (favorite?.match_id === match.id) {
             return favorite
-            // setFavoriteState="true"
         }
     })
 

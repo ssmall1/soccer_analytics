@@ -18,6 +18,11 @@
     align-items: center;
     font-weight: bold;
     font-size: 18px;
+    transition: transform .2s;
+}
+
+.match-container:hover{
+    transform: scale(1.02);
 }
 
 #match-img{

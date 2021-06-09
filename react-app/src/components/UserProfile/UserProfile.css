@@ -28,9 +28,75 @@
 .favorites-container{
     grid-column: 1 / 2;
     grid-row: 1 / 5;
-    border: 2px solid blue;
+    border: 3px solid #008fc8;
+    width: 450px;
     margin: 20px 20px;
-    padding: 10px 10px;
+    overflow-y: scroll;
+    display: flex;
+    border-radius: 7px;
+    flex-direction: column;
+}
+
+.favorites-title-container{
+    position: fixed;
+    height: 50px;
+    width: 440px;
+    border-bottom: 1px solid black;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+}
+
+#favorites-title{
+    align-self: center;
+    font-weight: 900;
+    font-size: 20px;
+}
+
+.favorite-matches-container{
+    padding-top: 50px;
+}
+
+.profile-match-container{
+    margin: 20px 26px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 14px;
+    transition: transform .2s;
+}
+
+.profile-match-container:hover{
+    transform: scale(1.02);
+    z-index: 0;
+}
+
+#profile-match-img{
+    height: 150px;
+    border-radius: 10%;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+    border-radius: 5px;
+    scroll-margin-right: 3px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+background: #b6babe;
+border-radius: 5px;
+scroll-margin-right: 3px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+background: #008fc8;
+border-radius: 5px;
 }
 
 
