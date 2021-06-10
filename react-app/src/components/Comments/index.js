@@ -43,8 +43,12 @@ const Comments = () => {
         setCommentContent(e.target.value);
       }
       
-    async function handleEditComment(id){
+    async function handleEditComment(e, id){
+        e.preventDefault();
         const content = editedCommentContent;
+        if (content === "") {
+            return null
+        }
         const comment = {
             id,
             userId,
@@ -112,7 +116,7 @@ const Comments = () => {
                                 </input>
                                 <div className="edit-comment-container">
                                     <button id="cancel-edit-comment" onClick={() => setEditComment(false)}>Cancel</button>
-                                    <button id="edit-comment" onClick={() => handleEditComment(comment.id)}>Save</button>
+                                    <button id="edit-comment" disabled={editedCommentContent === ""} onClick={(e) => handleEditComment(e, comment.id)}>Save</button>
                                 </div>
                                 </form>
                                 : <div id="comment">
@@ -122,7 +126,7 @@ const Comments = () => {
                                     </div>
                                 </div>
                             }
-                            {comment.user_id === user.id ?
+                            {comment.user_id === user.id & editComment === false ?
                                 <div id="comment-buttons">
                                     <button id="delete-comment" onClick={() => setEditComment(true)}>Edit</button>
                                     <button id="delete-comment" onClick={() => handleDeleteComment(comment)}>Delete</button>
