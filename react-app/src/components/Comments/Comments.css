@@ -90,3 +90,34 @@
     color: #008fc8;
     font-weight: bold;
 }
+
+.edit-comment-container{
+    display: flex;
+}
+
+#cancel-edit-comment, #edit-comment{
+    font-size: 15px;
+    transition: 0.4s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 25px;
+    padding: 4px 10px;
+    border-radius: 10px;
+    margin: 4px 6px;
+    background-color: white;
+    border: 2px solid #008fc8;
+    color: #008fc8;
+}
+
+
+#cancel-edit-comment:hover, #edit-comment:hover{
+    color: white;
+    background-color: #008fc8;
+}
+
+#edit-comment:disabled{
+    color: white;
+    background-color: rgba(255, 0, 0, 0.623);
+    border: 2px solid rgba(255, 0, 0, 0.623);
+}
