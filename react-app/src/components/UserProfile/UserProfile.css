@@ -70,6 +70,7 @@
     font-weight: bold;
     font-size: 14px;
     transition: transform .2s;
+    cursor: pointer;
 }
 
 .profile-match-container:hover{
