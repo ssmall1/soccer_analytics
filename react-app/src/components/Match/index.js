@@ -70,16 +70,14 @@ const Match = () => {
                 <div id="match-page-title">{match.match_name}</div>
                 <img id="match-page-img" src={match.match_img} alt={`${match.match_name}`}/>
             </div>
-            <div className="match-analysis-wrapper">
-                <div className="analysis-selector-container">
-
-                </div>
+            <div className="match-content-wrapper">
+                <Comments id="comments-component"/>
                 <div className="pitch-chart-container">
                     <EventChart id="pitch-chart"/>
                 </div>
-            </div>
+    
 
-            <Comments />
+            </div>
         </div>
     )
 }

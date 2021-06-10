@@ -43,13 +43,13 @@
     font-weight: bold;
 }
 
-.match-analysis-wrapper{
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
+.match-content-wrapper{
+    display: flex;
+    margin-top: 50px;
 }
 
 .pitch-chart-container{
-    grid-column: 7 / 13;
+    margin-left: 90px;
     background-image: url('../../resources/blank_field.png');
     background-repeat: no-repeat;
     height: 74vh;

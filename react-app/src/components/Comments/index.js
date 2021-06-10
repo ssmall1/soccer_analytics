@@ -48,7 +48,7 @@ const Comments = () => {
     if (comments) {
 
         function pickComments(comments) {
-            for (let i = 0; i < 5; i++) {
+            for (let i = 0; i < 6; i++) {
                 let comment = comments[i]
                 if (comment) {
                 renderedComments.push(comment); 
@@ -84,6 +84,9 @@ const Comments = () => {
                         <div id="comment-container" key={comment.id}>
                             <div id="comment">
                                 {comment.content}
+                                <div id="comment-user">
+                                    - {comment.user.first_name} {comment.user.last_name}
+                                </div>
                             </div>
                             {comment.user_id === user.id ? <button id="delete-comment" onClick={() => handleDeleteComment(comment)}>Delete</button> : <></>}
                         </div>
