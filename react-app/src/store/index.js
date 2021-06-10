@@ -4,8 +4,10 @@ import session from "./session";
 import matchesReducer from './matches';
 import eventsReducer from './events';
 import favoriteReducer from './favorite';
+import commentReducer from './comments';
 
 const rootReducer = combineReducers({
+    comments: commentReducer,
     favorites: favoriteReducer,
     matches: matchesReducer,
     events: eventsReducer,

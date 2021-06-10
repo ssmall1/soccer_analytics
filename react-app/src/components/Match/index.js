@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux';
 import * as eventsReducer from "../../store/events";
 import * as matchesReducer from "../../store/matches";
 import * as favoriteReducer from "../../store/favorite";
 import EventChart from "../EventChart";
+import Comments from "../Comments";
 import "./Match.css";
 
 const Match = () => {
@@ -17,12 +18,15 @@ const Match = () => {
     const user = useSelector(state => state.session.user);
     const favorites = useSelector(state => state.favorites.favorites);
 
+    useEffect(async () => {
+        await dispatch(matchesReducer.getMatch(matchKey));
+    }, [dispatch])
+
     useEffect(() => {
         dispatch(eventsReducer.getMatchEvents(matchKey));
-        dispatch(matchesReducer.getMatch(matchKey));
-        dispatch(favoriteReducer.getFavorites(user.id))
+        dispatch(favoriteReducer.getFavorites(user.id));
         dispatch(eventsReducer.getEvents());
-    }, [])
+    }, [match])
 
     if (!events) return null;
     
@@ -32,13 +36,15 @@ const Match = () => {
 
     let currentFavorite1 = favorites.filter((favorite) => {
         if (favorite?.match_id === match.id) {
-            return favorite
+            return favorite;
         }
+        return null;
     })
 
     let currentFavorite = currentFavorite1[0];
-    
-    async function handleFavorite() {
+
+    async function handleFavorite(e) {
+        e.preventDefault();
         const userId = user.id;
         const matchId = match.id;
         const payload = {
@@ -48,7 +54,8 @@ const Match = () => {
         await dispatch(favoriteReducer.postFavorite(payload));
     }
 
-    async function handleRemoveFavorite() {
+    async function handleRemoveFavorite(e) {
+        e.preventDefault();
         await dispatch(favoriteReducer.deleteFavorite(currentFavorite));
         await dispatch(favoriteReducer.getFavorites(user.id))
     }
@@ -71,6 +78,8 @@ const Match = () => {
                     <EventChart id="pitch-chart"/>
                 </div>
             </div>
+
+            <Comments />
         </div>
     )
 }

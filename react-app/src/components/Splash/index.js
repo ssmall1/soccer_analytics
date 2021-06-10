@@ -33,20 +33,23 @@ const Splash = () => {
             </div>
 
             <div className="splash-header">
-                <div id="body-images-container">
-                    <div id="left-gif">
-                        <img id="splash-gif" src={pulisic} alt="pulisic celebration"></img>
-                    </div>
-
+                <div id="header-container1">
+                    <div id="container1-message">Welcome</div>
+                    <div id="container1-submessage">to the cutting edge of soccer and european football analytics</div>
                     <div id="right-gif">
-                        <img id="splash-gif" src={yedlin} alt="yedlin move"></img>
+                        <img id="pulisic-gif" src={pulisic} alt="pulisic celebration"></img>
                     </div>
                 </div>
             </div>
 
-            <div className="info-container">
-                <div className="info-title">Analyze matches based on:</div>
-                <ul>
+            <div className="info-container">Created with data from the English Premier League, the world's top showcase of club football</div>
+
+            <div className="features-container">
+                <div id="left-gif">
+                    <img id="yedlin-gif" src={yedlin} alt="yedlin move"></img>
+                </div>
+                <div id="features-title">Analyze matches based on:</div>
+                <ul id="features-list">
                     <li>Goals</li>
                     <li>Possession</li>
                     <li>Positional player data</li>
