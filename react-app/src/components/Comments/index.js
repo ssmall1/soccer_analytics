@@ -6,6 +6,7 @@ import './Comments.css';
 const Comments = () => {
     const dispatch = useDispatch();
     const [commentContent, setCommentContent] = useState("");
+    const [editComment, setEditComment] = useState(false);
 
     const user = useSelector(state => state.session.user);
     const userId = user.id;
@@ -37,7 +38,13 @@ const Comments = () => {
 
     async function handleDeleteComment(comment){
         await dispatch(commentReducer.deleteComment(comment));
-        await dispatch(commentReducer.getComments(matchKey))
+        await dispatch(commentReducer.getComments(matchKey));
+    }
+
+    async function handleEditComment(e, comment){
+        e.preventDefault();
+        // await dispatch(commentReducer.editComment(comment));
+        await dispatch(commentReducer.getComments(matchKey));
     }
 
     if (!comments) {
@@ -73,7 +80,7 @@ const Comments = () => {
                     >
                     </input>
                     <div className="submit-comment-container">
-                        <button type="submit" id="submit-comment">Post</button>
+                        <button id="submit-comment">Post</button>
                     </div>
                 </form>
             </div>
@@ -82,13 +89,36 @@ const Comments = () => {
                 {renderedComments.map((comment) => {
                     return(
                         <div id="comment-container" key={comment.id}>
-                            <div id="comment">
-                                {comment.content}
-                                <div id="comment-user">
-                                    - {comment.user.first_name} {comment.user.last_name}
+                            {editComment ? 
+                                <form id="edit-comment-form" onSubmit={handleEditComment}>
+                                <input
+                                    id="comment-input"
+                                    type="textbox"
+                                    name="comment"
+                                    onChange={updateComment}
+                                    value={comment.content}
+                                    required
+                                >
+                                </input>
+                                <div className="edit-comment-container">
+                                    <button id="cancel-edit-comment" onClick={() => setEditComment(false)}>Cancel</button>
+                                    <button id="edit-comment">Submit</button>
                                 </div>
-                            </div>
-                            {comment.user_id === user.id ? <button id="delete-comment" onClick={() => handleDeleteComment(comment)}>Delete</button> : <></>}
+                                </form>
+                                : <div id="comment">
+                                    {comment.content}
+                                    <div id="comment-user">
+                                        - {comment.user.first_name} {comment.user.last_name}
+                                    </div>
+                                </div>
+                            }
+                            {comment.user_id === user.id ?
+                                <div id="comment-buttons">
+                                    <button id="delete-comment" onClick={() => setEditComment(true)}>Edit</button>
+                                    <button id="delete-comment" onClick={() => handleDeleteComment(comment)}>Delete</button>
+                                </div>
+                                : <></>
+                            }
                         </div>
                     )
                 })}

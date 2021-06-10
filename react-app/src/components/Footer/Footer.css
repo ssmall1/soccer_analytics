@@ -12,3 +12,8 @@
 .footer-wrapper > a{
     margin: 0px 5px;
 }
+
+.footer-wrapper > a:hover{
+    color: #008fc8;
+    font-weight: bold;
+}

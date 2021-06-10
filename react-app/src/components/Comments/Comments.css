@@ -60,6 +60,10 @@
     width: 35em;
 }
 
+#comment-buttons{
+    display: flex;
+}
+
 #delete-comment{
     color: #008fc8;
     border: 2px solid #008fc8;
@@ -72,6 +76,7 @@
     padding: 10px 13px;
     border-radius: 10px;
     height: 30px;
+    margin-left: 5px;
 }
 
 #delete-comment:hover{
