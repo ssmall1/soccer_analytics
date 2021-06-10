@@ -38,3 +38,9 @@ class User(db.Model, UserMixin):
       "img_url": self.img_url,
       "bio": self.bio
     }
+
+  def to_dict_comment(self):
+    return {
+      "first_name": self.first_name,
+      "last_name": self.last_name
+    }

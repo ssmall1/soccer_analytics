@@ -16,5 +16,6 @@ class Comment(db.Model):
       "id": self.id,
       "user_id": self.user_id,
       "content": self.content,
-      "match_key": self.match_key
+      "match_key": self.match_key,
+      "user": self.user.to_dict_comment()
     }
