@@ -13,7 +13,7 @@ const Match = () => {
     const matchKeyStr = useParams();
     const matchKey = parseInt(matchKeyStr.matchKey, 10);
 
-    const events = useSelector(state => state.events.events);
+    const events = useSelector(state => state.events.matchEvents);
     const match = useSelector(state => state.matches.match);
     const user = useSelector(state => state.session.user);
     const favorites = useSelector(state => state.favorites.favorites);

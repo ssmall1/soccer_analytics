@@ -34,11 +34,11 @@ const eventsReducer = (state = initialState, action) => {
     switch (action.type) {
         case SET_EVENTS:
             newState = { ...state }
-            newState.events = action.events
+            newState.allEvents = action.events
             return newState;
         case SET_MATCH_EVENTS:
             newState = { ...state }
-            newState.allMatchEvents = action.matchEvents
+            newState.matchEvents = action.matchEvents
             return newState;
         default:
             return state;
