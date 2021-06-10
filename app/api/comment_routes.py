@@ -40,3 +40,16 @@ def remove_comment(comment_id):
     my_comment.append(comment.to_dict())
     return jsonify(my_comment)
 
+
+@comment_routes.route("/<int:id>", methods=["PUT"])
+@login_required
+def update_watchlist(id):
+    comment = Comment.query.get(id)
+
+    comment.content = request.json["content"]
+
+    db.session.add(comment)
+    db.session.commit()
+    new_comment = comment.to_dict()
+    return jsonify(new_comment)
+

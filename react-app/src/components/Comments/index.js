@@ -6,6 +6,7 @@ import './Comments.css';
 const Comments = () => {
     const dispatch = useDispatch();
     const [commentContent, setCommentContent] = useState("");
+    const [editedCommentContent, setEditedCommentContent] = useState("");
     const [editComment, setEditComment] = useState(false);
 
     const user = useSelector(state => state.session.user);
@@ -18,33 +19,41 @@ const Comments = () => {
         await dispatch(commentReducer.getComments(matchKey));
     }, [dispatch])
 
-    const updateComment = (e) => {
-        setCommentContent(e.target.value);
-      }
-
+    
     const handleCommentSubmit = (e) => {
         e.preventDefault();
         const content = commentContent;
         setCommentContent("");
-
+        
         const payload = {
             userId,
             matchKey,
             content,
         }
-
+        
         dispatch(commentReducer.postComment(payload));
     }
-
+    
     async function handleDeleteComment(comment){
         await dispatch(commentReducer.deleteComment(comment));
         await dispatch(commentReducer.getComments(matchKey));
     }
-
-    async function handleEditComment(e, comment){
-        e.preventDefault();
-        // await dispatch(commentReducer.editComment(comment));
+    
+    const updateComment = (e) => {
+        setCommentContent(e.target.value);
+      }
+      
+    async function handleEditComment(id){
+        const content = editedCommentContent;
+        const comment = {
+            id,
+            userId,
+            matchKey,
+            content
+        }
+        await dispatch(commentReducer.updateComment(comment));
         await dispatch(commentReducer.getComments(matchKey));
+        setEditComment(false);
     }
 
     if (!comments) {
@@ -90,19 +99,20 @@ const Comments = () => {
                     return(
                         <div id="comment-container" key={comment.id}>
                             {editComment ? 
-                                <form id="edit-comment-form" onSubmit={handleEditComment}>
+                                <form id="edit-comment-form">
                                 <input
                                     id="comment-input"
                                     type="textbox"
                                     name="comment"
-                                    onChange={updateComment}
-                                    value={comment.content}
+                                    onChange={e => setEditedCommentContent(e.target.value)}
+                                    value={editedCommentContent}
+                                    placeholder={comment.content}
                                     required
                                 >
                                 </input>
                                 <div className="edit-comment-container">
                                     <button id="cancel-edit-comment" onClick={() => setEditComment(false)}>Cancel</button>
-                                    <button id="edit-comment">Submit</button>
+                                    <button id="edit-comment" onClick={() => handleEditComment(comment.id)}>Save</button>
                                 </div>
                                 </form>
                                 : <div id="comment">
