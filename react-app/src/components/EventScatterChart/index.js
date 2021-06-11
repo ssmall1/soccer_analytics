@@ -24,52 +24,66 @@ function EventScatterChart({ matchKey }) {
       }],
       showLine: true,
       backgroundColor: 'rgb(0, 143, 200)',
-    }, {
-      label: "2",
-      data: [{
-        x: 31,
-        y: 78
-      }, {
-        x: 51,
-        y: 75
-      }],
-      showLine: true,
-      backgroundColor: 'rgb(0, 143, 200)',
-    }, {
-      label: '3',
-      data: [{
-        x: 51,
-        y: 75
-      }, {
-        x: 35,
-        y: 71
-      }],
-      showLine: true,
-      backgroundColor: 'rgb(0, 143, 200)',
-    }, {
-      label: '4',
-      data: [{
-        x: 35,
-        y: 71
-      }, {
-        x: 41,
-        y: 95
-      }],
-      showLine: true,
-      backgroundColor: 'rgb(0, 143, 200)',
-    }, {
-      label: '5',
-      data: [{
-        x: 41,
-        y: 95
-      }, {
-        x: 72,
-        y: 88
-      }],
-      showLine: true,
-      backgroundColor: 'rgb(0, 143, 200)',
-    }]
-  };
+    },
+
+  // const data = {
+  //   datasets: [{
+  //     label: "1",
+  //     data: [{
+  //       x: 49,
+  //       y: 49
+  //     }, {
+  //       x: 31,
+  //       y: 78
+  //     }],
+  //     showLine: true,
+  //     backgroundColor: 'rgb(0, 143, 200)',
+  //   }, {
+  //     label: "2",
+  //     data: [{
+  //       x: 31,
+  //       y: 78
+  //     }, {
+  //       x: 51,
+  //       y: 75
+  //     }],
+  //     showLine: true,
+  //     backgroundColor: 'rgb(0, 143, 200)',
+  //   }, {
+  //     label: '3',
+  //     data: [{
+  //       x: 51,
+  //       y: 75
+  //     }, {
+  //       x: 35,
+  //       y: 71
+  //     }],
+  //     showLine: true,
+  //     backgroundColor: 'rgb(0, 143, 200)',
+  //   }, {
+  //     label: '4',
+  //     data: [{
+  //       x: 35,
+  //       y: 71
+  //     }, {
+  //       x: 41,
+  //       y: 95
+  //     }],
+  //     showLine: true,
+  //     backgroundColor: 'rgb(0, 143, 200)',
+  //   }, {
+  //     label: '5',
+  //     data: [{
+  //       x: 41,
+  //       y: 95
+  //     }, {
+  //       x: 72,
+  //       y: 88
+  //     }],
+  //     showLine: true,
+  //     backgroundColor: 'rgb(0, 143, 200)',
+  //   }]
+  // };
   
   const options = {
     scales: {
