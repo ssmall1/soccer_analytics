@@ -56,8 +56,8 @@ const Comments = () => {
             content
         }
         await dispatch(commentReducer.updateComment(comment));
-        await dispatch(commentReducer.getComments(matchKey));
         setEditComment(false);
+        setEditedCommentContent("");
     }
 
     if (!comments) {
@@ -102,7 +102,7 @@ const Comments = () => {
                 {renderedComments.map((comment) => {
                     return(
                         <div id="comment-container" key={comment.id}>
-                            {editComment ? 
+                            {editComment == comment.id? 
                                 <form id="edit-comment-form">
                                 <input
                                     id="comment-input"
@@ -128,7 +128,7 @@ const Comments = () => {
                             }
                             {comment.user_id === user.id & editComment === false ?
                                 <div id="comment-buttons">
-                                    <button id="delete-comment" onClick={() => setEditComment(true)}>Edit</button>
+                                    <button id="delete-comment" onClick={() => setEditComment(comment.id)}>Edit</button>
                                     <button id="delete-comment" onClick={() => handleDeleteComment(comment)}>Delete</button>
                                 </div>
                                 : <></>
