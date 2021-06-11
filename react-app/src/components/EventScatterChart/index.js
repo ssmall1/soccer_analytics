@@ -9,22 +9,23 @@ const data = {
     {
       label: '',
       data: [
-        { x: rand(), y: rand() },
-        { x: rand(), y: rand() },
-        { x: rand(), y: rand() },
-        { x: rand(), y: rand() },
-        { x: rand(), y: rand() },
-        { x: rand(), y: rand() },
-        { x: rand(), y: rand() },
-        { x: rand(), y: rand() },
-        { x: rand(), y: rand() },
-        { x: rand(), y: rand() },
-        { x: rand(), y: rand() },
-        { x: rand(), y: rand() },
-        { x: rand(), y: rand() },
-        { x: rand(), y: rand() },
+        { x: 49, y: 49 },
+        { x: 31, y: 78 },
+        // { x: , y:  },
+        // { x: , y:  },
+        // { x: , y:  },
+        // { x: , y:  },
+        // { x: , y:  },
+        // { x: , y:  },
+        // { x: , y:  },
+        // { x: , y:  },
+        // { x: , y:  },
+        // { x: , y:  },
+        // { x: , y:  },
+        // { x: , y:  },
       ],
-      backgroundColor: 'rgba(255, 99, 132, 1)',
+      backgroundColor: 'rgb(0, 143, 200)',
+      showLine: true,
     },
   ],
 };
@@ -56,6 +57,12 @@ const options = {
         beginAtZero: true,
       }
     },
+  },
+  legend: {
+    display: false
+  },
+  datalabels: {
+    display: false
   },
   responsive:true,
   maintainAspectRatio: false

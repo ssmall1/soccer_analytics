@@ -5,6 +5,7 @@ import * as eventsReducer from "../../store/events";
 import * as matchesReducer from "../../store/matches";
 import * as favoriteReducer from "../../store/favorite";
 import EventScatterChart from "../EventScatterChart";
+// import EventLineChart from "../EventLineChart";
 import Comments from "../Comments";
 import "./Match.css";
 
@@ -74,6 +75,7 @@ const Match = () => {
                 <Comments id="comments-component"/>
                 <div className="pitch-chart-container">
                     <EventScatterChart id="pitch-chart"/>
+                    {/* <EventLineChart id="pitch-chart"/> */}
                 </div>
     
 
