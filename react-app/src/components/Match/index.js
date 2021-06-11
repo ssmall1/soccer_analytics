@@ -80,6 +80,16 @@ const Match = () => {
     
 
             </div>
+            <div className="chart-selector-wrapper">
+                <select>
+                    <option value="Shot">Shots</option>
+                    <option value="Pass">Passes</option>
+                    <option value="Free Kick">Free Kick</option>
+                    <option value="Duel">Duel</option>
+                    <option value="Foul">Fouls</option>
+                    <option value="Save attempt">Save</option>
+                </select>
+            </div>
         </div>
     )
 }

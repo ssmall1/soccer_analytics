@@ -1,5 +1,5 @@
 .match-wrapper{
-    height: 140vh;
+    height: 120vh;
 }
 
 #match-favorite-btn, #match-unfavorite-btn{
@@ -53,4 +53,9 @@
     background-image: url('../../resources/blank_field.png');
     background-repeat: no-repeat;
     height: 74vh;
+}
+
+.chart-selector-wrapper{
+    display: flex;
+    justify-content: center;
 }

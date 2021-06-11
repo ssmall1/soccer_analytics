@@ -25,75 +25,17 @@ function EventScatterChart({ matchKey }) {
           x: typeEvent.x_start,
           y: typeEvent.y_start,
         }, {
-          x: null,
-          y: null
+          x: typeEvent.event_name === "Shot" ? null : typeEvent.x_end,
+          y: typeEvent.event_name === "Shot" ? null : typeEvent.y_end
         }],
         showLine: true,
         backgroundColor: 'rgb(0, 143, 200)',
+        pointRadius: 7,
       }
       })
   }
 
-  console.log("data", data)
-
-  const data1 = {
-    datasets: [{
-      label: "1",
-      data: [{
-        x: 49,
-        y: 49
-      }, {
-        x: 31,
-        y: 78
-      }],
-      showLine: true,
-      backgroundColor: 'rgb(0, 143, 200)',
-    }, {
-      label: "2",
-      data: [{
-        x: 31,
-        y: 78
-      }, {
-        x: 51,
-        y: 75
-      }],
-      showLine: true,
-      backgroundColor: 'rgb(0, 143, 200)',
-    }, {
-      label: '3',
-      data: [{
-        x: 51,
-        y: 75
-      }, {
-        x: 35,
-        y: 71
-      }],
-      showLine: true,
-      backgroundColor: 'rgb(0, 143, 200)',
-    }, {
-      label: '4',
-      data: [{
-        x: 35,
-        y: 71
-      }, {
-        x: 41,
-        y: 95
-      }],
-      showLine: true,
-      backgroundColor: 'rgb(0, 143, 200)',
-    }, {
-      label: '5',
-      data: [{
-        x: 41,
-        y: 95
-      }, {
-        x: 72,
-        y: 88
-      }],
-      showLine: true,
-      backgroundColor: 'rgb(0, 143, 200)',
-    }]
-  };
+  // console.log("data", data)
   
   const options = {
     scales: {
@@ -146,8 +88,6 @@ function EventScatterChart({ matchKey }) {
     maintainAspectRatio: false,
     events: []
   };
-
-  console.log("data1", data1)
 
     return(
         <div className="event-chart-wrapper">
