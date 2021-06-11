@@ -74,7 +74,7 @@ const Match = () => {
             <div className="match-content-wrapper">
                 <Comments id="comments-component"/>
                 <div className="pitch-chart-container">
-                    <EventScatterChart id="pitch-chart"/>
+                    <EventScatterChart id="pitch-chart" matchKey={matchKey}/>
                     {/* <EventLineChart id="pitch-chart"/> */}
                 </div>
     
