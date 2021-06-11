@@ -2,8 +2,6 @@ import React from 'react';
 import { Line } from 'react-chartjs-2';
 import "./EventLineChart.css";
 
-const rand = () => Math.round(Math.random() * 20 - 10);
-
 const data = {
   datasets: [
     {

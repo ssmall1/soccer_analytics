@@ -2,32 +2,64 @@ import React from 'react';
 import { Scatter } from 'react-chartjs-2';
 import "./EventScatterChart.css";
 
-const rand = () => Math.round(Math.random() * 20 - 10);
-
 const data = {
-  datasets: [
-    {
-      label: '',
-      data: [
-        { x: 49, y: 49 },
-        { x: 31, y: 78 },
-        // { x: , y:  },
-        // { x: , y:  },
-        // { x: , y:  },
-        // { x: , y:  },
-        // { x: , y:  },
-        // { x: , y:  },
-        // { x: , y:  },
-        // { x: , y:  },
-        // { x: , y:  },
-        // { x: , y:  },
-        // { x: , y:  },
-        // { x: , y:  },
-      ],
-      backgroundColor: 'rgb(0, 143, 200)',
-      showLine: true,
-    },
-  ],
+  datasets: [{
+    label: "My First dataset",
+    data: [{
+      x: 49,
+      y: 49
+    }, {
+      x: 31,
+      y: 78
+    }],
+    showLine: true,
+    backgroundColor: 'rgb(0, 143, 200)',
+  }, {
+    type: "scatter",
+    label: "My Second dataset",
+    data: [{
+      x: 31,
+      y: 78
+    }, {
+      x: 51,
+      y: 75
+    }],
+    showLine: true,
+    backgroundColor: 'rgb(0, 143, 200)',
+  }, {
+    label: 'Line Dataset 1',
+    data: [{
+      x: 51,
+      y: 75
+    }, {
+      x: 35,
+      y: 71
+    }],
+    showLine: true,
+    backgroundColor: 'rgb(0, 143, 200)',
+  }, {
+    label: 'Line Dataset 2',
+    data: [{
+      x: 35,
+      y: 71
+    }, {
+      x: 41,
+      y: 95
+    }],
+    showLine: true,
+    backgroundColor: 'rgb(0, 143, 200)',
+  }, {
+    label: 'Line Dataset 2',
+    data: [{
+      x: 35,
+      y: 71
+    }, {
+      x: 41,
+      y: 95
+    }],
+    showLine: true,
+    backgroundColor: 'rgb(0, 143, 200)',
+  }]
 };
 
 const options = {
@@ -41,6 +73,10 @@ const options = {
         color: 'rgb(255,255,255)',
       },
       ticks: {
+        beginAtZero: true,
+        steps: 100,
+        max: 100,
+        stepValue: 1,
         display: false
       }
     },
@@ -53,19 +89,29 @@ const options = {
         color: 'rgb(255,255,255)',
       },
       ticks: {
-        display: false,
         beginAtZero: true,
+        steps: 100,
+        max: 100,
+        stepValue: 1,
+        display: false
       }
     },
   },
-  legend: {
-    display: false
+  plugins: {
+    legend: {
+      display: false
+    },
+    datalabels: {
+      display: false
+    },
   },
-  datalabels: {
-    display: false
+  interaction: {
+    intersect: false,
+    mode: 'index',
   },
   responsive:true,
-  maintainAspectRatio: false
+  maintainAspectRatio: false,
+  events: []
 };
 
 function EventScatterChart() {
