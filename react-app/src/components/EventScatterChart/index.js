@@ -1,6 +1,6 @@
 import React from 'react';
 import { Scatter } from 'react-chartjs-2';
-import "./EventChart.css";
+import "./EventScatterChart.css";
 
 const rand = () => Math.round(Math.random() * 20 - 10);
 
@@ -61,7 +61,7 @@ const options = {
   maintainAspectRatio: false
 };
 
-function EventChart() {
+function EventScatterChart() {
     
     return(
         <div className="event-chart-wrapper">
@@ -70,4 +70,4 @@ function EventChart() {
     )
 }
 
-export default EventChart;
+export default EventScatterChart;

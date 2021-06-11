@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import * as eventsReducer from "../../store/events";
 import * as matchesReducer from "../../store/matches";
 import * as favoriteReducer from "../../store/favorite";
-import EventChart from "../EventChart";
+import EventScatterChart from "../EventScatterChart";
 import Comments from "../Comments";
 import "./Match.css";
 
@@ -73,7 +73,7 @@ const Match = () => {
             <div className="match-content-wrapper">
                 <Comments id="comments-component"/>
                 <div className="pitch-chart-container">
-                    <EventChart id="pitch-chart"/>
+                    <EventScatterChart id="pitch-chart"/>
                 </div>
     
 
