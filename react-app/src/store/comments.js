@@ -111,9 +111,14 @@ const commentReducer = (state = initialState, action) => {
         case DELETE_COMMENT:
             newState = { ...state }
         case UPDATE_COMMENT:
-            return { ...state,
-            [action.comment.id]: action.comment
+            newState = { ...state }
+            for(let i = 0; i < newState.comments.length; i++) {
+                if (newState.comments[i].id === action.comment.id ) {
+                    newState.comments[i] = action.comment
+                }
             }
+            console.log("NEWSTATE", newState)
+            return newState
         default:
             return state;
     }
