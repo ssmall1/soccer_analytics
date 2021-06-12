@@ -33,8 +33,8 @@ export const getEvents = () => async (dispatch) => {
     }
 }
 
-export const getTypeMatchEvents = (matchKey) => async (dispatch) => {
-    const response = await fetch(`/api/events/type/${matchKey}`);
+export const getTypeMatchEvents = (matchKey, eventType) => async (dispatch) => {
+    const response = await fetch(`/api/events/${eventType}/${matchKey}`);
     if (response.ok) {
         const typeMatchEvents = await response.json();
         dispatch(setTypeMatchEvents(typeMatchEvents))

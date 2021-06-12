@@ -5,14 +5,14 @@ import * as eventsReducer from "../../store/events"
 import "./EventScatterChart.css";
 
 
-function EventScatterChart({ matchKey }) {
+function EventScatterChart({ matchKey, eventType }) {
   const dispatch = useDispatch();
 
   const typeEvents = useSelector(state => state.events.typeMatchEvents)
 
   useEffect(()=> {
-    dispatch(eventsReducer.getTypeMatchEvents(matchKey));
-  }, [dispatch])
+    dispatch(eventsReducer.getTypeMatchEvents(matchKey, eventType));
+  }, [dispatch, eventType])
 
   if (!typeEvents) return null;
 
@@ -22,8 +22,8 @@ function EventScatterChart({ matchKey }) {
         return {
         label: `${typeEvent.event_sec}`,
         data: [{
-          x: typeEvent.x_start,
-          y: typeEvent.y_start,
+          x: typeEvent.event_name === "Save attempt" ? null : typeEvent.x_start,
+          y: typeEvent.event_name === "Save attempt" ? null : typeEvent.y_start,
         }, {
           x: typeEvent.event_name === "Shot" ? null : typeEvent.x_end,
           y: typeEvent.event_name === "Shot" ? null : typeEvent.y_end

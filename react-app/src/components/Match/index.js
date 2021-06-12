@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux';
 import * as eventsReducer from "../../store/events";
@@ -13,6 +13,8 @@ const Match = () => {
     const dispatch = useDispatch();
     const matchKeyStr = useParams();
     const matchKey = parseInt(matchKeyStr.matchKey, 10);
+
+    const [eventType, setEventType] = useState("Shot");
 
     const events = useSelector(state => state.events.matchEvents);
     const match = useSelector(state => state.matches.match);
@@ -74,14 +76,14 @@ const Match = () => {
             <div className="match-content-wrapper">
                 <Comments id="comments-component"/>
                 <div className="pitch-chart-container">
-                    <EventScatterChart id="pitch-chart" matchKey={matchKey}/>
+                    <EventScatterChart id="pitch-chart" matchKey={matchKey} eventType={eventType}/>
                     {/* <EventLineChart id="pitch-chart"/> */}
                 </div>
     
 
             </div>
             <div className="chart-selector-wrapper">
-                <select>
+                <select onChange={(e) => setEventType(e.target.value)}>
                     <option value="Shot">Shots</option>
                     <option value="Pass">Passes</option>
                     <option value="Free Kick">Free Kick</option>
