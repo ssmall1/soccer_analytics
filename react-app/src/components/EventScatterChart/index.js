@@ -1,68 +1,92 @@
-import React from 'react';
+import React, { useEffect, useState } from "react";
 import { Scatter } from 'react-chartjs-2';
+import { useDispatch, useSelector } from "react-redux";
+import * as eventsReducer from "../../store/events"
 import "./EventScatterChart.css";
 
-const rand = () => Math.round(Math.random() * 20 - 10);
 
-const data = {
-  datasets: [
-    {
-      label: '',
-      data: [
-        { x: rand(), y: rand() },
-        { x: rand(), y: rand() },
-        { x: rand(), y: rand() },
-        { x: rand(), y: rand() },
-        { x: rand(), y: rand() },
-        { x: rand(), y: rand() },
-        { x: rand(), y: rand() },
-        { x: rand(), y: rand() },
-        { x: rand(), y: rand() },
-        { x: rand(), y: rand() },
-        { x: rand(), y: rand() },
-        { x: rand(), y: rand() },
-        { x: rand(), y: rand() },
-        { x: rand(), y: rand() },
-      ],
-      backgroundColor: 'rgba(255, 99, 132, 1)',
+function EventScatterChart({ matchKey, eventType }) {
+  const dispatch = useDispatch();
+
+  const typeEvents = useSelector(state => state.events.typeMatchEvents)
+
+  useEffect(()=> {
+    dispatch(eventsReducer.getTypeMatchEvents(matchKey, eventType));
+  }, [dispatch, eventType])
+
+  if (!typeEvents) return null;
+
+  const data = {
+    datasets:
+      typeEvents.map((typeEvent) => {
+        return {
+        label: `${typeEvent.event_sec}`,
+        data: [{
+          x: typeEvent.event_name === "Save attempt" ? null : typeEvent.x_start,
+          y: typeEvent.event_name === "Save attempt" ? null : typeEvent.y_start,
+        }, {
+          x: typeEvent.event_name === "Shot" ? null : typeEvent.x_end,
+          y: typeEvent.event_name === "Shot" ? null : typeEvent.y_end
+        }],
+        showLine: true,
+        backgroundColor: 'rgb(0, 143, 200)',
+        pointRadius: 7,
+      }
+      })
+  }
+  
+  const options = {
+    scales: {
+      xAxes: {
+        grid: {
+          display: false,
+        },
+        gridLines: {
+          display: true,
+          color: 'rgb(255,255,255)',
+        },
+        ticks: {
+          beginAtZero: true,
+          steps: 100,
+          max: 100,
+          stepValue: 1,
+          display: false
+        }
+      },
+      yAxes: {
+        grid: {
+          display: false,
+        },
+        gridLines: {
+          display: true,
+          color: 'rgb(255,255,255)',
+        },
+        ticks: {
+          beginAtZero: true,
+          steps: 100,
+          max: 100,
+          stepValue: 1,
+          display: false
+        }
+      },
     },
-  ],
-};
-
-const options = {
-  scales: {
-    xAxes: {
-      grid: {
-        display: false,
-      },
-      gridLines: {
-        display: true,
-        color: 'rgb(255,255,255)',
-      },
-      ticks: {
+    plugins: {
+      legend: {
         display: false
-      }
-    },
-    yAxes: {
-      grid: {
-        display: false,
       },
-      gridLines: {
-        display: true,
-        color: 'rgb(255,255,255)',
+      datalabels: {
+        display: false
       },
-      ticks: {
-        display: false,
-        beginAtZero: true,
-      }
     },
-  },
-  responsive:true,
-  maintainAspectRatio: false
-};
+    interaction: {
+      intersect: false,
+      mode: 'index',
+    },
+    responsive:true,
+    maintainAspectRatio: false,
+    events: []
+  };
 
-function EventScatterChart() {
-    
     return(
         <div className="event-chart-wrapper">
             <Scatter data={data} options={options} />

@@ -1,30 +1,16 @@
 import React from 'react';
-import { Scatter } from 'react-chartjs-2';
-import "./EventScatterChart.css";
-
-const rand = () => Math.round(Math.random() * 20 - 10);
+import { Line } from 'react-chartjs-2';
+import "./EventLineChart.css";
 
 const data = {
   datasets: [
     {
       label: '',
       data: [
-        { x: rand(), y: rand() },
-        { x: rand(), y: rand() },
-        { x: rand(), y: rand() },
-        { x: rand(), y: rand() },
-        { x: rand(), y: rand() },
-        { x: rand(), y: rand() },
-        { x: rand(), y: rand() },
-        { x: rand(), y: rand() },
-        { x: rand(), y: rand() },
-        { x: rand(), y: rand() },
-        { x: rand(), y: rand() },
-        { x: rand(), y: rand() },
-        { x: rand(), y: rand() },
-        { x: rand(), y: rand() },
+        { x: 49, y: 49 },
+        { x: 31, y: 78 },
       ],
-      pointColor: 'rgba(0, 143, 200)',
+      pointColor: 'rgb(0, 143, 200)',
     },
   ],
 };
@@ -61,13 +47,13 @@ const options = {
   maintainAspectRatio: false
 };
 
-function EventScatterChart() {
+function EventLineChart() {
     
     return(
         <div className="event-chart-wrapper">
-            <Scatter data={data} options={options} />
+            <Line data={data} options={options} />
         </div>
     )
 }
 
-export default EventScatterChart;
+export default EventLineChart;

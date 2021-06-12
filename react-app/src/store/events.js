@@ -1,5 +1,6 @@
 const SET_MATCH_EVENTS = "events/SET_MATCH_EVENTS";
 const SET_EVENTS = "events/SET_EVENTS";
+const SET_TYPE_MATCH_EVENTS = "events/SET_TYPE_MATCH_EVENTS";
 
 const setMatchEvents = (matchEvents) => ({
     type: SET_MATCH_EVENTS,
@@ -10,6 +11,11 @@ const setEvents = (events) => ({
     type: SET_EVENTS,
     events
 });
+
+const setTypeMatchEvents = (typeMatchEvents) => ({
+    type: SET_TYPE_MATCH_EVENTS,
+    typeMatchEvents
+}) 
 
 export const getMatchEvents = (matchKey) => async (dispatch) => {
     const response = await fetch(`/api/events/${matchKey}`);
@@ -27,6 +33,14 @@ export const getEvents = () => async (dispatch) => {
     }
 }
 
+export const getTypeMatchEvents = (matchKey, eventType) => async (dispatch) => {
+    const response = await fetch(`/api/events/${eventType}/${matchKey}`);
+    if (response.ok) {
+        const typeMatchEvents = await response.json();
+        dispatch(setTypeMatchEvents(typeMatchEvents))
+    }
+}
+
 const initialState = {};
 
 const eventsReducer = (state = initialState, action) => {
@@ -39,6 +53,10 @@ const eventsReducer = (state = initialState, action) => {
         case SET_MATCH_EVENTS:
             newState = { ...state }
             newState.matchEvents = action.matchEvents
+            return newState;
+        case SET_TYPE_MATCH_EVENTS:
+            newState = { ...state }
+            newState.typeMatchEvents = action.typeMatchEvents
             return newState;
         default:
             return state;

@@ -121,3 +121,14 @@
     background-color: rgba(255, 0, 0, 0.623);
     border: 2px solid rgba(255, 0, 0, 0.623);
 }
+
+.event-type-selector{
+    border-radius: 5px;
+    font-size: 15px;
+}
+
+.event-type-selector:focus{
+    outline: none;
+    box-shadow: 0 0 0 .5px #008fc8;
+}
+

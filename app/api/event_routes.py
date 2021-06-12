@@ -22,3 +22,13 @@ def matchEvents(match_key):
     events = [event.to_dict() for event in events1]
     # pp.pprint(events)
     return jsonify(events)
+
+
+@event_routes.route('/<event_type>/<int:match_key>')
+def typeMatchEvents(match_key, event_type):
+    events1 = Event.query.filter(Event.match_id == match_key, Event.event_name == event_type)
+    pp = pprint.PrettyPrinter(width=41, compact=True)
+    # print("-------------------TYPE MATCH EVENTS---------------------------")
+    events = [event.to_dict() for event in events1]
+    # pp.pprint(events)
+    return jsonify(events)
