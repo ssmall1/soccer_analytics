@@ -5,7 +5,6 @@ import * as eventsReducer from "../../store/events";
 import * as matchesReducer from "../../store/matches";
 import * as favoriteReducer from "../../store/favorite";
 import EventScatterChart from "../EventScatterChart";
-// import EventLineChart from "../EventLineChart";
 import Comments from "../Comments";
 import "./Match.css";
 
@@ -77,13 +76,12 @@ const Match = () => {
                 <Comments id="comments-component"/>
                 <div className="pitch-chart-container">
                     <EventScatterChart id="pitch-chart" matchKey={matchKey} eventType={eventType}/>
-                    {/* <EventLineChart id="pitch-chart"/> */}
                 </div>
     
 
             </div>
             <div className="chart-selector-wrapper">
-                <select onChange={(e) => setEventType(e.target.value)}>
+                <select onChange={(e) => setEventType(e.target.value)} className="event-type-selector">
                     <option value="Shot">Shots</option>
                     <option value="Pass">Passes</option>
                     <option value="Free Kick">Free Kick</option>

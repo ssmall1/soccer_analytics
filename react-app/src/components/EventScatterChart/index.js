@@ -34,8 +34,6 @@ function EventScatterChart({ matchKey, eventType }) {
       }
       })
   }
-
-  // console.log("data", data)
   
   const options = {
     scales: {
