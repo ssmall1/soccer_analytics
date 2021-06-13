@@ -6,8 +6,28 @@ def seed_users():
 
     demo = User(first_name='Marcelo', last_name='Bielsa', email='bielsa@leeds.com',
                 password='whatisgoingon', img_url='https://i0.wp.com/thesefootballtimes.co/wp-content/uploads/2018/03/bielsa.jpeg?fit=1600%2C1091&ssl=1')
+    
+    demo1 = User(first_name='Pep', last_name='Guardiola', email='pep@city.com',
+                password='password', img_url='https://i.guim.co.uk/img/media/a54a93daeb97b98e3012a69d820fdfa79695e378/468_351_2000_1200/master/2000.jpg?width=1200&height=1200&quality=85&auto=format&fit=crop&s=8ce553f3717bab7f1fbe6631d8815f00')
+
+    demo2 = User(first_name='Mikel', last_name='Arteta', email='arteta@arsenal.com',
+                password='password', img_url='https://images.daznservices.com/di/library/GOAL/70/55/mikel-arteta-arsenal_1fwe5davm08fe1rsz90tny59km.jpg?t=146609921&quality=60&w=1200&h=800')
+
+    demo3 = User(first_name='Jose', last_name='Mourinho', email='jose@me.com',
+                password='password', img_url='https://icdn.football-espana.net/wp-content/uploads/2020/11/jose-mourinho-tottenham-2019-20_eqbhbu167yof1buhf9y0v0sor.jpg')
+
+    demo4 = User(first_name='Roy', last_name='Hodgson', email='hodgson@palace.com',
+                password='password', img_url='https://s.hs-data.com/bilder/spieler/gross/28476.jpg')
+
+    demo5 = User(first_name='Schuler', last_name='Small', email='schuler@me.com',
+                password='aguero', img_url='https://images.unsplash.com/photo-1614632537190-23e4146777db?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MXx8fGVufDB8fHx8&w=1000&q=80')
 
     db.session.add(demo)
+    db.session.add(demo1)
+    db.session.add(demo2)
+    db.session.add(demo3)
+    db.session.add(demo4)
+    db.session.add(demo5)
 
     db.session.commit()
 
