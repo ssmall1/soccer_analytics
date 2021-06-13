@@ -37,7 +37,7 @@ const Splash = () => {
                 <div id="header-container">
                     <div id="container1-messages">
                         <div id="container1-message">Welcome</div>
-                        <div id="container1-submessage">to the cutting edge of soccer and european football analytics</div>
+                        <div id="container1-submessage">to the cutting edge of soccer and European football analytics</div>
                     </div>
                     <div id="center-gif">
                         <img id="pulisic-gif" src={pulisic} alt="pulisic celebration"></img>

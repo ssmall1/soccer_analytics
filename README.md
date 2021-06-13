@@ -1,98 +1,67 @@
-# Flask React Project
+# SCHUSA
+*By Schuler Perlmutter - [Visit SCHUSA](http://schusa.herokuapp.com/)*
 
-This is the backend for the Flask React project.
+**Table of Contents**
+* [What is SCHUSA](#What-is-SCHUSA)
+* [Frontend Overview](#frontend-overview)
+* [Backend Overview](#backend-overview)
+* [Conclusion & Next Steps](#conclusion-and-next-steps)
 
-## Getting started
+## What is SCHUSA
+SCHUSA is a fullstack application that gives fans and professionals alike the ability to analyze European football matches
 
-1. Clone this repository (only this branch)
+Users are given access to highly specific event data with positional characteristics, which provides them with a complete match analysis.
 
-   ```bash
-   git clone https://github.com/appacademy-starters/python-project-starter.git
-   ```
+![](/readme-resources/rappa-mappa-demo-1.gif)
 
-2. Install dependencies
+SCHUSA makes use of [Wyscout's](https://wyscout.com/) data to provide a full picture of each match.
 
-      ```bash
-      pipenv install --dev -r dev-requirements.txt && pipenv install -r requirements.txt
-      ```
+## Frontend Overview
+SCHUSA's frontend was built using React and Redux, with React Chart.js serving as the tool to construct the pitch stastical mapping container. It makes use of React's emphasis on reusable components as well as the combination of React and Redux, which allows rapid access to information. This is of paramount importance when dealing with 1,500+ events per match. 
 
-3. Create a **.env** file based on the example with proper settings for your
-   development environment
-4. Setup your PostgreSQL user, password and database and make sure it matches your **.env** file
+#### Chart.js
+SCHUSA uses the [Chart.js](https://www.chartjs.org/docs/latest/) library for its match analysis. Specifically, SCHUSA uses a unique scatterplot construction which maps each of the events into a dataset for easy and repeatable placement of data. Organizing the style and presentation of the chart was a unique challenge, but I am very pleased with the scatterplot's rendering as well as the seamless integration with the pitch layout. Mapping the data was and continues to be a challenge to the unique nature of each event type as well as the copious possible permutations. For example, certain event types only have start or end data and so these had to be filtered accordingly using ternaries. As the project progresses with team-oriented data, the mapping will have to be refactored for more complicated filters.
 
-5. Get into your pipenv, migrate your database, seed your database, and run your flask app
+##### Scatterplot Mapping Component
+```jsx
+function EventScatterChart({ matchKey, eventType }) {
+  const dispatch = useDispatch();
 
-   ```bash
-   pipenv shell
-   ```
+  const typeEvents = useSelector(state => state.events.typeMatchEvents)
 
-   ```bash
-   flask db upgrade
-   ```
+  useEffect(()=> {
+    dispatch(eventsReducer.getTypeMatchEvents(matchKey, eventType));
+  }, [dispatch, eventType])
 
-   ```bash
-   flask seed all
-   ```
+  if (!typeEvents) return null;
 
-   ```bash
-   flask run
-   ```
+  const data = {
+    datasets:
+      typeEvents.map((typeEvent) => {
+        return {
+        label: `${typeEvent.event_sec}`,
+        data: [{
+          x: typeEvent.event_name === "Save attempt" ? null : typeEvent.x_start,
+          y: typeEvent.event_name === "Save attempt" ? null : typeEvent.y_start,
+        }, {
+          x: typeEvent.event_name === "Shot" ? null : typeEvent.x_end,
+          y: typeEvent.event_name === "Shot" ? null : typeEvent.y_end
+        }],
+        showLine: true,
+        backgroundColor: 'rgb(0, 143, 200)',
+        pointRadius: 7,
+      }
+      })
+  }
+```
 
-6. To run the React App in development, checkout the [README](./react-app/README.md) inside the `react-app` directory.
+## Backend Overview
+SCHUSA uses a Flask server with PostgreSQL as the database. The biggest challenge with the backend was undoubtedly cleaning and organizing the data for seeding. Wyscout provides incredibly detailed event data but there are a lot of unnecessary and overly complicated tags and associations that had to be parsed through. Furthermore, the data had to be refactored into types and constructions that were suitable for a Postgres database. Due to the limit on Heroku databases of 10,000 rows, only five matches could be seeded. That being said, a future goal for the project is to expand beyond Heroku in order to seed full leagues and seasons. More data will only lead to more definitive conclusions and analysis possibilities.
 
-***
-*IMPORTANT!*
-   If you add any python dependencies to your pipfiles, you'll need to regenerate your requirements.txt before deployment.
-   You can do this by running:
+## Conclusion and Next Steps
 
-   ```bash
-   pipenv lock -r > requirements.txt
-   ```
+Building this project was a true labor of love. I have played soccer since I was three years old and have been following the European game since I was 10. To be able to create something for a game that has given me so much joy and feeling, not to mention mental toughness and acuity, has been one of my favorite parts of my software engineering journey to date.
 
-*ALSO IMPORTANT!*
-   psycopg2-binary MUST remain a dev dependency because you can't install it on apline-linux.
-   There is a layer in the Dockerfile that will install psycopg2 (not binary) for us.
-***
+SCHUSA is also the first project I created that is completely independent from any existing site in terms of its construction, appearance, and application. Working on the design from database organization and manipulation to user-facing features and experience has been the most demanding challenge of my engineering experience. I found myself constantly reflecting and reevaluating my choices to ensure efficient use of data, bandwidth, and of course the user's time. I learned so much about my approach to application design, which I will implement and develop further in my next project.
 
-## Deploy to Heroku
-
-1. Create a new project on Heroku
-2. Under Resources click "Find more add-ons" and add the add on called "Heroku Postgres"
-3. Install the [Heroku CLI](https://devcenter.heroku.com/articles/heroku-command-line)
-4. Run
-
-   ```bash
-   heroku login
-   ```
-
-5. Login to the heroku container registry
-
-   ```bash
-   heroku container:login
-   ```
-
-6. Update the `REACT_APP_BASE_URL` variable in the Dockerfile.
-   This should be the full URL of your Heroku app: i.e. "https://flask-react-aa.herokuapp.com"
-7. Push your docker container to heroku from the root directory of your project.
-   This will build the dockerfile and push the image to your heroku container registry
-
-   ```bash
-   heroku container:push web -a {NAME_OF_HEROKU_APP}
-   ```
-
-8. Release your docker container to heroku
-
-   ```bash
-   heroku container:release web -a {NAME_OF_HEROKU_APP}
-   ```
-
-9. set up your database:
-
-   ```bash
-   heroku run -a {NAME_OF_HEROKU_APP} flask db upgrade
-   heroku run -a {NAME_OF_HEROKU_APP} flask seed all
-   ```
-
-10. Under Settings find "Config Vars" and add any additional/secret .env variables.
-
-11. profit
+**Next Steps:** There are numerous next steps outlined in this paper including seeding more matches and creating more team-oriented event filters. Additionally, I plan to add a player profile and search feature, which will allow the user to search for any player and view their season-long performance statistics.
