@@ -76,10 +76,10 @@ const Match = () => {
                     <select onChange={(e) => setEventType(e.target.value)} className="event-type-selector">
                         <option value="Shot">Shots</option>
                         <option value="Pass">Passes</option>
-                        <option value="Free Kick">Free Kick</option>
-                        <option value="Duel">Duel</option>
+                        <option value="Free Kick">Free Kicks</option>
+                        <option value="Duel">Duels</option>
                         <option value="Foul">Fouls</option>
-                        <option value="Save attempt">Save</option>
+                        <option value="Save attempt">Saves</option>
                     </select>
             </div>
                 <img id="match-page-img" src={match.match_img} alt={`${match.match_name}`}/>

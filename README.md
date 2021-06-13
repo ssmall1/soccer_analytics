@@ -1,5 +1,5 @@
 # SCHUSA
-*By Schuler Perlmutter - [Visit SCHUSA](http://schusa.herokuapp.com/)*
+*By Schuler Small - [Visit SCHUSA](http://schusa.herokuapp.com/)*
 
 **Table of Contents**
 * [What is SCHUSA](#What-is-SCHUSA)
@@ -12,7 +12,7 @@ SCHUSA is a fullstack application that gives fans and professionals alike the ab
 
 Users are given access to highly specific event data with positional characteristics, which provides them with a complete match analysis.
 
-![](/readme-resources/rappa-mappa-demo-1.gif)
+![](/readme-resources/schusa-walkthrough.gif)
 
 SCHUSA makes use of [Wyscout's](https://wyscout.com/) data to provide a full picture of each match.
 
