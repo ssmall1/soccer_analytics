@@ -32,6 +32,7 @@ const Match = () => {
 
     if (!events) return null;
     
+
     if (!match) return null;
     
     if (!favorites) return null;
@@ -70,6 +71,17 @@ const Match = () => {
                     : <button id="match-favorite-btn" onClick={handleFavorite}>Favorite</button> 
                 }
                 <div id="match-page-title">{match.match_name}</div>
+                <div className="chart-selector-wrapper">
+                    <span>Filter By:</span>
+                    <select onChange={(e) => setEventType(e.target.value)} className="event-type-selector">
+                        <option value="Shot">Shots</option>
+                        <option value="Pass">Passes</option>
+                        <option value="Free Kick">Free Kicks</option>
+                        <option value="Duel">Duels</option>
+                        <option value="Foul">Fouls</option>
+                        <option value="Save attempt">Saves</option>
+                    </select>
+            </div>
                 <img id="match-page-img" src={match.match_img} alt={`${match.match_name}`}/>
             </div>
             <div className="match-content-wrapper">
@@ -80,7 +92,7 @@ const Match = () => {
     
 
             </div>
-            <div className="chart-selector-wrapper">
+            {/* <div className="chart-selector-wrapper">
                 <select onChange={(e) => setEventType(e.target.value)} className="event-type-selector">
                     <option value="Shot">Shots</option>
                     <option value="Pass">Passes</option>
@@ -89,7 +101,7 @@ const Match = () => {
                     <option value="Foul">Fouls</option>
                     <option value="Save attempt">Save</option>
                 </select>
-            </div>
+            </div> */}
         </div>
     )
 }

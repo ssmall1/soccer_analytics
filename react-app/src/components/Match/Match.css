@@ -1,5 +1,5 @@
 .match-wrapper{
-    height: 120vh;
+    height: 100vh;
 }
 
 #match-favorite-btn, #match-unfavorite-btn{
@@ -38,7 +38,7 @@
 }
 
 #match-page-title{
-    margin-right: 200px;
+    margin-right: 70px;
     font-size: 40px;
     font-weight: bold;
 }
@@ -58,4 +58,9 @@
 .chart-selector-wrapper{
     display: flex;
     justify-content: center;
+    margin-right: 60px;
+}
+
+.event-type-selector{
+    margin-left: 4px;
 }
