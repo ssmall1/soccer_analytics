@@ -32,6 +32,7 @@ const Match = () => {
 
     if (!events) return null;
     
+
     if (!match) return null;
     
     if (!favorites) return null;

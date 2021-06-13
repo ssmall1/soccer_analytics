@@ -60,3 +60,7 @@
     justify-content: center;
     margin-right: 60px;
 }
+
+.event-type-selector{
+    margin-left: 4px;
+}
