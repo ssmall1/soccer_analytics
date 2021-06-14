@@ -42,7 +42,7 @@ const Splash = () => {
                     <div id="center-gif">
                         <img id="pulisic-gif" src={pulisic} alt="pulisic celebration"></img>
                     </div>
-                    <div className="info-container">Created with data from the English Premier League, the world's top showcase of club football.</div>
+                    <div className="info-container">Now with data from the English Premier League, the world's top showcase of club football.</div>
                 </div>
 
                 <div className="features-wrapper">

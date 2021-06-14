@@ -24,7 +24,7 @@
 
 .nav-links > a:hover{
     color: black;
-    background-color: #008fc82c;
+    background-color: #008fc81e;
     transition: 0.4s;
     
 }
@@ -63,6 +63,7 @@
     margin-left: 80px;
     border-radius: 10px;
     height: 400px;
+    box-shadow: 0px 0px 40px 20px rgba(0, 0, 0, 0.2);
 }
 
 .info-container{
@@ -150,15 +151,18 @@
 }
 
 .chart-label{
-    font-size: 50px;
-    margin-top: 150px;
+    font-size: 40px;
+    margin-top: 20px;
     padding: 0px 60px;
+    writing-mode: vertical-rl;
+    text-orientation: upright;
 }
 
 #shots-chart, #fouls-chart{
     height: 350px;
     width: auto;
     border-radius: 10px;
+    box-shadow: 0px 0px 40px 20px rgba(0, 0, 0, 0.1);
 }
 
 .close{

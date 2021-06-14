@@ -29,7 +29,7 @@ function EventScatterChart({ matchKey, eventType }) {
           y: typeEvent.event_name === "Shot" ? null : typeEvent.y_end
         }],
         showLine: true,
-        backgroundColor: 'rgb(0, 143, 200)',
+        backgroundColor: `${typeEvent.team_color}`,
         pointRadius: 7,
       }
       })
