@@ -1,8 +1,5 @@
 import React from "react";
-// import { useSelector, useDispatch } from "react-redux";
 import { NavLink } from "react-router-dom";
-// import { login } from "../../store/session";
-// import pitchImg from "../../resources/pitch.jpg";
 import './Splash.css';
 import logo from "../../resources/sa_logo_transparent.png";
 import pulisic from "../../resources/pulisic.gif";
@@ -14,9 +11,7 @@ const Splash = () => {
     return(
         <>
             <div className="splash-nav">
-                <NavLink to="/welcome">
-                    <img id="logo-img" alt="logo" src={logo}></img>
-                </NavLink>
+                <img id="logo-img" alt="logo" src={logo}></img>
 
                 <div className="nav-auth-links">
                     <NavLink id="splash-signin" to="/login">Log In</NavLink>
@@ -64,8 +59,6 @@ const Splash = () => {
                     </div>
                 </div>
             </div>
-
-
         </>
     )
 }
