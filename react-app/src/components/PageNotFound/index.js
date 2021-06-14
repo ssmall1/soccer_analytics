@@ -8,7 +8,7 @@ const PageNotFound = () => {
     <>
       <div className="error-wrapper">
         <div className="error-text-container">
-          <div className='error-header'>404 Error. Unfortunately, no games here.</div>
+          <div className='error-header'>404 Error. Unfortunately, no matches here.</div>
           <div id='error-txt'>Sometimes the best places to play are hard to find. Keep searching.</div>
           <NavLink to="/" className='error-link'>Return Home</NavLink>
         </div>

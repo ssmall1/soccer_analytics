@@ -1,6 +1,6 @@
 .error-wrapper{
     display: grid;
-    height: 85vh;
+    height: 93vh;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: 1fr;
 }
@@ -15,6 +15,8 @@
 .error-image{
     width: 60vw;
     height: 73vh;
+    border-radius: 10px;
+    box-shadow: 0px 0px 40px 20px rgba(0, 0, 0, 0.2);
 }
 
 .error-text-container{
@@ -43,7 +45,7 @@
 .error-link{
     margin: 30px 0px;
     padding: 15px 35px;
-    border-radius: 4px;
+    border-radius: 10px;
     color: white;
     background-color: #008fc8;
     font-weight: 900;

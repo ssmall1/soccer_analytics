@@ -39,7 +39,7 @@
   .login-signup-input {
     width: 35em;
     height: 2.7em;
-    border-radius: 4px;
+    border-radius: 6px;
     border: 1px rgb(228, 228, 228) solid;
     /* margin: 10px 0px; */
     transition: all 0.1s ease;
