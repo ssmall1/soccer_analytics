@@ -1,5 +1,5 @@
 # SCHUSA
-[Visit SCHUSA](http://schusa.herokuapp.com/)*
+[Visit SCHUSA](http://schusa.herokuapp.com/)
 
 **Table of Contents**
 * [What is SCHUSA](#What-is-SCHUSA)
