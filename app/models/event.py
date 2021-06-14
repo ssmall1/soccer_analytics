@@ -17,6 +17,7 @@ class Event(db.Model):
   match_id = db.Column(db.Integer, db.ForeignKey('matches.match_key'))
   event_name = db.Column(db.String(255))
   team_id = db.Column(db.Integer)
+  team_color = db.Column(db.String(255))
   event_sec = db.Column(db.Float)
   date_utc = db.Column(db.String(255))
   label = db.Column(db.String(255), db.ForeignKey('matches.match_name'))
@@ -43,6 +44,7 @@ class Event(db.Model):
       "match_id": self.match_id,
       "event_name": self.event_name,
       "team_id": self.team_id,
+      "team_color": self.team_color,
       "event_sec": self.event_sec,
       "date_utc": self.date_utc,
       "label": self.label,
