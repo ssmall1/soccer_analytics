@@ -14,9 +14,9 @@ function UserProfile() {
   const [firstName, setFirstName] = useState(user.first_name);
   const [lastName, setLastName] = useState(user.last_name);
   const [imgUrl, setImgUrl] = useState(user.img_url);
-  const [bio, setBio] = useState(user.bio);
+  const [bio, setBio] = useState(user.bio ? user.bio : "");
   const [editForm, setEditForm] = useState(false);
-  
+  const [confirmDelete, setConfirmDelete] = useState(false);
  
   const favorites = useSelector(state => state.favorites.favorites);
   const matches = useSelector(state => state.matches.matches);
@@ -73,6 +73,7 @@ function UserProfile() {
 }
 
   async function handleDeleteUser(){
+    setConfirmDelete(false);
     await dispatch(sessionReducer.deleteUser(user.id));
     history.push('/welcome');
   }
@@ -135,8 +136,19 @@ function UserProfile() {
           <div id="profile-bio">{user.bio}</div>
           <div id="user-buttons-container">
             <button id="open-edit-profile" onClick={() => setEditForm(true)}>Edit Profile</button>
-            <button id="delete-profile" onClick={() => handleDeleteUser()}>Delete Account</button>
+            <button id="delete-profile" onClick={() => setConfirmDelete(true)}>Delete Account</button>
           </div>
+          { confirmDelete ? 
+            <div id="confirm-delete-container">
+              <div>Are You Sure?</div>
+              <div className="user-buttons-container">
+                <button id="delete-profile" onClick={() => handleDeleteUser()}>Yes I'm Sure</button>
+                <button id="cancel-delete-profile" onClick={() => setConfirmDelete(false)}>Just Kidding</button>
+              </div>
+            </div>
+            :
+            <></>
+          }
         </div>
       }
 
