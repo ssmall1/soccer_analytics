@@ -1,13 +1,21 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from "react-router-dom";
 import './UserProfile.css';
 import * as matchesReducer from "../../store/matches";
 import * as favoriteReducer from "../../store/favorite";
+import * as sessionReducer from "../../store/session";
 
 function UserProfile() {
   const dispatch = useDispatch();
   const history = useHistory();
+
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [imgUrl, setImgUrl] = useState("");
+  const [editForm, setEditForm] = useState(false);
+  
+ 
   const user = useSelector(state => state.session.user);
   const favorites = useSelector(state => state.favorites.favorites);
   const matches = useSelector(state => state.matches.matches);
@@ -45,11 +53,68 @@ function UserProfile() {
   //   history.push('/');
   // }
 
+  async function handleEditProfile(e){
+    e.preventDefault();
+    if (firstName === "" || lastName === "" || imgUrl === "") {
+        return null
+    }
+    let id = user.id;
+
+    const profile = {
+        id,
+        firstName,
+        lastName,
+        imgUrl
+    }
+    await dispatch(sessionReducer.updateProfile(profile));
+    setEditForm(false);
+}
+
   return (
     <div className="profile-wrapper">
+      <div className="edit-profile-form-container">
+        <form id="edit-comment-form">
+          <input
+              className="profile-input"
+              type="textbox"
+              name="first"
+              onChange={e => setFirstName(e.target.value)}
+              value={user.first_name}
+              placeholder={user.first_name}
+              required
+          >
+          </input>
+          <input
+              className="profile-input"
+              type="textbox"
+              name="last"
+              onChange={e => setLastName(e.target.value)}
+              value={user.last_name}
+              placeholder={user.last_name}
+              required
+          >
+          </input>
+          <input
+              className="profile-input"
+              type="textbox"
+              name="img"
+              onChange={e => setLastName(e.target.value)}
+              value={user.imgUrl}
+              placeholder={user.imgUrl}
+              required
+          >
+          </input>
+          <div className="edit-comment-container">
+              <button id="cancel-edit-profile" onClick={() => setEditForm(false)}>Cancel</button>
+              <button id="edit-profile" disabled={firstName === "" || lastName === "" || imgUrl === ""} onClick={(e) => handleEditProfile(e)}>Save</button>
+          </div>
+        </form>
+      </div>
       <div className="profile-container">
         <img id="profile-img" src={user.img_url} alt={`${user.first_name} ${user.last_name} profile`}></img>
         <div id="profile-name">{user.first_name} {user.last_name}</div>
+        <div id="profile-bio">{user.bio}</div>
+        <button id="edit-profile-button" onClick={() => setEditForm(true)}>Edit Profile</button>
       </div>
 
       {/* { 
