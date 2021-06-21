@@ -1,8 +1,26 @@
 from app.models import db, Comment
+import random
+from faker import Faker
+fake = Faker()
+
 
 # Adds a demo user, you can add other users here if you want
 def seed_comments():
 
+    for _i in range(30):
+        matches = [2499719, 2499807, 2499830, 2499987, 2500097]
+        rand_index = random.randint(0, len(matches)-1)
+
+        new_comment = Comment(
+        user_id=random.randint(7, 26),
+        content=fake.sentence(nb_words=9),
+        match_key=matches[rand_index],
+        )
+
+        db.session.add(new_comment)
+        db.session.commit()
+        
+        
     comment1 = Comment(user_id=6, content="This game was wild", match_key=2499719)
     comment2 = Comment(user_id=1, content="What a match", match_key=2499719)
     comment3 = Comment(user_id=3, content="Great performance from the boys", match_key=2499719)
@@ -40,6 +58,8 @@ def seed_comments():
     db.session.add(comment15)
 
     db.session.commit()
+
+
 
 # Uses a raw SQL query to TRUNCATE the users table.
 # SQLAlchemy doesn't have a built in function to do this

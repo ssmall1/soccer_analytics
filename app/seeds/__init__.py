@@ -26,5 +26,3 @@ def undo():
     undo_events()
     undo_comments()
     # Add other undo functions here
-
-

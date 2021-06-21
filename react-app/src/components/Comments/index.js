@@ -12,7 +12,7 @@ const Comments = () => {
     const user = useSelector(state => state.session.user);
     const userId = user.id;
     const match = useSelector(state => state.matches.match);
-    const comments = useSelector(state => state.comments.comments)
+    let comments = useSelector(state => state.comments.comments)
     const matchKey = match.match_key;
     
     useEffect(async () => {
@@ -59,23 +59,9 @@ const Comments = () => {
         setEditComment(false);
         setEditedCommentContent("");
     }
-
+    
     if (!comments) {
         return null;
-    }
-
-    let renderedComments = [];
-    if (comments) {
-
-        function pickComments(comments) {
-            for (let i = 0; i < 6; i++) {
-                let comment = comments[i]
-                if (comment) {
-                renderedComments.push(comment); 
-                }
-            }
-        }
-        pickComments(comments);
     }
 
     return(
