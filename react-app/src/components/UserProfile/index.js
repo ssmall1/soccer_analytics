@@ -74,59 +74,66 @@ function UserProfile() {
 
   return (
     <div className="profile-wrapper">
-      <div className="edit-profile-form-container">
-        <form id="edit-comment-form">
-          <input
-              className="profile-input"
-              type="textbox"
-              name="first"
-              onChange={e => setFirstName(e.target.value)}
-              value={firstName}
-              required
-          >
-          </input>
-          <input
-              className="profile-input"
-              type="textbox"
-              name="last"
-              onChange={e => setLastName(e.target.value)}
-              value={lastName}
-              placeholder={user.last_name}
-              required
-          >
-          </input>
-          <input
-              className="profile-input"
-              type="textbox"
-              name="img"
-              onChange={e => setImgUrl(e.target.value)}
-              value={imgUrl}
-              placeholder={user.img_url}
-              required
-          >
-          </input>
-          <input
-              className="profile-input"
-              type="textbox"
-              name="bio"
-              onChange={e => setBio(e.target.value)}
-              value={bio}
-              placeholder={user.bio ? bio : "Add a bio..."}
-              required
-          >
-          </input>
-          <div className="edit-comment-container">
-              <button id="cancel-edit-profile" onClick={() => setEditForm(false)}>Cancel</button>
-              <button id="edit-profile" disabled={firstName === "" || lastName === "" || imgUrl === ""} onClick={(e) => handleEditProfile(e)}>Save</button>
-          </div>
-        </form>
-      </div>
-      <div className="profile-container">
-        <img id="profile-img" src={user.img_url} alt={`${user.first_name} ${user.last_name} profile`}></img>
-        <div id="profile-name">{user.first_name} {user.last_name}</div>
-        <div id="profile-bio">{user.bio}</div>
-        <button id="edit-profile-button" onClick={() => setEditForm(true)}>Edit Profile</button>
-      </div>
+      {editForm ?
+        <div className="edit-profile-form-container">
+          <form id="edit-profile-form">
+            <label>First Name</label>
+            <input
+                className="profile-input"
+                type="textbox"
+                name="first"
+                onChange={e => setFirstName(e.target.value)}
+                value={firstName}
+                required
+            >
+            </input>
+            <label>Last Name</label>
+            <input
+                className="profile-input"
+                type="textbox"
+                name="last"
+                onChange={e => setLastName(e.target.value)}
+                value={lastName}
+                placeholder={user.last_name}
+                required
+            >
+            </input>
+            <label>Profile Image</label>
+            <input
+                className="profile-input"
+                type="textbox"
+                name="img"
+                onChange={e => setImgUrl(e.target.value)}
+                value={imgUrl}
+                placeholder={user.img_url}
+                required
+            >
+            </input>
+            <label>Profile Bio</label>
+            <input
+                className="profile-input"
+                type="textbox"
+                name="bio"
+                onChange={e => setBio(e.target.value)}
+                value={user.bio ? bio : ""}
+                placeholder={user.bio ? bio : "Add a bio..."}
+                required
+            >
+            </input>
+            <div className="edit-comment-container">
+                <button id="cancel-edit-profile" onClick={() => setEditForm(false)}>Cancel</button>
+                <button id="edit-profile" disabled={firstName === "" || lastName === "" || imgUrl === "" || bio === ""} onClick={(e) => handleEditProfile(e)}>Save</button>
+            </div>
+          </form>
+        </div>
+        :
+        <div className="profile-container">
+          <img id="profile-img" src={user.img_url} alt={`${user.first_name} ${user.last_name} profile`}></img>
+          <div id="profile-name">{user.first_name} {user.last_name}</div>
+          <div id="profile-bio">{user.bio}</div>
+          <button id="open-edit-profile" onClick={() => setEditForm(true)}>Edit Profile</button>
+        </div>
+      }
 
       {/* { 
         favorites === [] ?
