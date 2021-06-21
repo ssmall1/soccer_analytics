@@ -3,6 +3,7 @@ from app.models import db, User
 from faker import Faker
 fake = Faker()
 
+
 # Adds a demo user, you can add other users here if you want
 def seed_users():
 
@@ -35,7 +36,7 @@ def seed_users():
     db.session.commit()
     
     for num in range(1,20):
-        num=User(
+        num = User(
             first_name=fake.first_name(),
             last_name=fake.last_name(),
             email=fake.free_email(),
@@ -50,6 +51,8 @@ def seed_users():
 # SQLAlchemy doesn't have a built in function to do this
 # TRUNCATE Removes all the data from the table, and resets
 # the auto incrementing primary key
+
+
 def undo_users():
     db.session.execute('TRUNCATE users RESTART IDENTITY CASCADE;')
     db.session.commit()
