@@ -91,6 +91,17 @@
     font-weight: bold;
 }
 
+#comment{
+    display: flex;
+}
+
+#commenter-img{
+    padding-right: 10px;
+    height: 40px;
+    border-radius: 30%;
+    box-shadow: 0px 0px 40px 20px rgba(0, 0, 0, 0.05);
+}
+
 .edit-comment-container{
     display: flex;
 }
@@ -131,4 +142,3 @@
     outline: none;
     box-shadow: 0 0 0 .5px #008fc8;
 }
-

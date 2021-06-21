@@ -120,9 +120,12 @@ const Comments = () => {
                                 </div>
                                 </form>
                                 : <div id="comment">
-                                    {comment.content}
-                                    <div id="comment-user">
-                                        - {comment.user.first_name} {comment.user.last_name}
+                                    <img id="commenter-img" src={comment.user.img_url} alt={`${user.first_name} ${user.last_name} profile`}></img>
+                                    <div>
+                                        {comment.content}
+                                        <div id="comment-user">
+                                            - {comment.user.first_name} {comment.user.last_name}
+                                        </div>
                                     </div>
                                 </div>
                             }
