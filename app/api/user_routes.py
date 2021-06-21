@@ -33,3 +33,15 @@ def update_user(id):
     db.session.commit()
     new_user = user.to_dict()
     return jsonify(new_user)
+
+
+@user_routes.route("/<int:id>", methods=["DELETE"])
+@login_required
+def remove_user(id):
+    user = User.query.get(id)
+
+    db.session.delete(user)
+    db.session.commit()
+
+    deleted_user = user.to_dict()
+    return jsonify(deleted_user)

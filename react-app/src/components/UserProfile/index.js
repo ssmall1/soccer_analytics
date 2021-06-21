@@ -72,6 +72,11 @@ function UserProfile() {
     setEditForm(false);
 }
 
+  async function handleDeleteUser(){
+    await dispatch(sessionReducer.deleteUser(user.id));
+    history.push('/welcome');
+  }
+
   return (
     <div className="profile-wrapper">
       {editForm ?
@@ -94,7 +99,6 @@ function UserProfile() {
                 name="last"
                 onChange={e => setLastName(e.target.value)}
                 value={lastName}
-                placeholder={user.last_name}
                 required
             >
             </input>
@@ -105,7 +109,6 @@ function UserProfile() {
                 name="img"
                 onChange={e => setImgUrl(e.target.value)}
                 value={imgUrl}
-                placeholder={user.img_url}
                 required
             >
             </input>
@@ -115,8 +118,7 @@ function UserProfile() {
                 type="textbox"
                 name="bio"
                 onChange={e => setBio(e.target.value)}
-                value={user.bio ? bio : ""}
-                placeholder={user.bio ? bio : "Add a bio..."}
+                value={bio}
                 required
             >
             </input>
@@ -131,7 +133,10 @@ function UserProfile() {
           <img id="profile-img" src={user.img_url} alt={`${user.first_name} ${user.last_name} profile`}></img>
           <div id="profile-name">{user.first_name} {user.last_name}</div>
           <div id="profile-bio">{user.bio}</div>
-          <button id="open-edit-profile" onClick={() => setEditForm(true)}>Edit Profile</button>
+          <div id="user-buttons-container">
+            <button id="open-edit-profile" onClick={() => setEditForm(true)}>Edit Profile</button>
+            <button id="delete-profile" onClick={() => handleDeleteUser()}>Delete Account</button>
+          </div>
         </div>
       }
 
