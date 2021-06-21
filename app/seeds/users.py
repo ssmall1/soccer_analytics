@@ -35,18 +35,18 @@ def seed_users():
 
     db.session.commit()
     
-    for num in range(1,20):
-        num = User(
-            first_name=fake.first_name(),
-            last_name=fake.last_name(),
-            email=fake.free_email(),
-            password="password",
-            img_url=fake.image_url(),
-            bio=fake.sentence(nb_words=9),
+    for _i in range(20):
+        new_user = User(
+        first_name=fake.first_name(),
+        last_name=fake.last_name(),
+        email=fake.free_email(),
+        password="password",
+        img_url=fake.image_url(),
+        bio=fake.sentence(nb_words=9),
         )
 
-    db.session.add(num)
-    db.session.commit()
+        db.session.add(new_user)
+        db.session.commit()
 # Uses a raw SQL query to TRUNCATE the users table.
 # SQLAlchemy doesn't have a built in function to do this
 # TRUNCATE Removes all the data from the table, and resets

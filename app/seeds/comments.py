@@ -45,15 +45,18 @@ def seed_comments():
 
     db.session.commit()
 
-    for num in range(1,30):
-        num = Comment(
-            user_id=random.randint(7, 28),
-            content=fake.sentence(nb_words=9),
-            match_key=random.randint(1, 6),
+    for _i in range(30):
+        matches = [2499719, 2499807, 2499830, 2499987, 2500097]
+        rand_index = random.randint(0, len(matches)-1)
+
+        new_comment = Comment(
+        user_id=random.randint(7, 26),
+        content=fake.sentence(nb_words=9),
+        match_key=matches[rand_index],
         )
 
-    db.session.add(num)
-    db.session.commit()
+        db.session.add(new_comment)
+        db.session.commit()
 
 
 # Uses a raw SQL query to TRUNCATE the users table.
