@@ -10,13 +10,14 @@ function UserProfile() {
   const dispatch = useDispatch();
   const history = useHistory();
 
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [imgUrl, setImgUrl] = useState("");
+  const user = useSelector(state => state.session.user);
+  const [firstName, setFirstName] = useState(user.first_name);
+  const [lastName, setLastName] = useState(user.last_name);
+  const [imgUrl, setImgUrl] = useState(user.img_url);
+  const [bio, setBio] = useState(user.bio);
   const [editForm, setEditForm] = useState(false);
   
  
-  const user = useSelector(state => state.session.user);
   const favorites = useSelector(state => state.favorites.favorites);
   const matches = useSelector(state => state.matches.matches);
 
@@ -55,7 +56,7 @@ function UserProfile() {
 
   async function handleEditProfile(e){
     e.preventDefault();
-    if (firstName === "" || lastName === "" || imgUrl === "") {
+    if (firstName === "" || lastName === "" || imgUrl === "" || bio === "") {
         return null
     }
     let id = user.id;
@@ -64,9 +65,10 @@ function UserProfile() {
         id,
         firstName,
         lastName,
-        imgUrl
+        imgUrl,
+        bio
     }
-    await dispatch(sessionReducer.updateProfile(profile));
+    await dispatch(sessionReducer.updateUser(profile));
     setEditForm(false);
 }
 
@@ -79,8 +81,7 @@ function UserProfile() {
               type="textbox"
               name="first"
               onChange={e => setFirstName(e.target.value)}
-              value={user.first_name}
-              placeholder={user.first_name}
+              value={firstName}
               required
           >
           </input>
@@ -89,7 +90,7 @@ function UserProfile() {
               type="textbox"
               name="last"
               onChange={e => setLastName(e.target.value)}
-              value={user.last_name}
+              value={lastName}
               placeholder={user.last_name}
               required
           >
@@ -98,9 +99,19 @@ function UserProfile() {
               className="profile-input"
               type="textbox"
               name="img"
-              onChange={e => setLastName(e.target.value)}
-              value={user.imgUrl}
-              placeholder={user.imgUrl}
+              onChange={e => setImgUrl(e.target.value)}
+              value={imgUrl}
+              placeholder={user.img_url}
+              required
+          >
+          </input>
+          <input
+              className="profile-input"
+              type="textbox"
+              name="bio"
+              onChange={e => setBio(e.target.value)}
+              value={bio}
+              placeholder={user.bio ? bio : "Add a bio..."}
               required
           >
           </input>

@@ -117,8 +117,7 @@ const commentReducer = (state = initialState, action) => {
                     newState.comments[i] = action.comment
                 }
             }
-            console.log("NEWSTATE", newState)
-            return newState
+            return newState;
         default:
             return state;
     }
