@@ -14,7 +14,7 @@ function UserProfile() {
   const [firstName, setFirstName] = useState(user.first_name);
   const [lastName, setLastName] = useState(user.last_name);
   const [imgUrl, setImgUrl] = useState(user.img_url);
-  const [bio, setBio] = useState(user.bio ? user.bio : "");
+  const [bio, setBio] = useState(user.bio);
   const [editForm, setEditForm] = useState(false);
   const [confirmDelete, setConfirmDelete] = useState(false);
  
@@ -56,8 +56,9 @@ function UserProfile() {
 
   async function handleEditProfile(e){
     e.preventDefault();
-    if (firstName === "" || lastName === "" || imgUrl === "" || bio === "") {
-        return null
+    if (firstName === user.first_name && lastName === user.last_name && imgUrl === user.img_url && bio === user.bio) {
+      setEditForm(false);
+      return null;
     }
     let id = user.id;
 
@@ -135,7 +136,16 @@ function UserProfile() {
           <div id="profile-name">{user.first_name} {user.last_name}</div>
           <div id="profile-bio">{user.bio}</div>
           <div id="user-buttons-container">
-            <button id="open-edit-profile" onClick={() => setEditForm(true)}>Edit Profile</button>
+            <button 
+              id="open-edit-profile"
+              onClick={() => {
+                setEditForm(true)
+                return setConfirmDelete(false)
+              }
+            }
+            >
+              Edit Profile
+            </button>
             <button id="delete-profile" onClick={() => setConfirmDelete(true)}>Delete Account</button>
           </div>
           { confirmDelete ? 
