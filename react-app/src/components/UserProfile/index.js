@@ -9,8 +9,8 @@ function UserProfile() {
   const dispatch = useDispatch();
   const history = useHistory();
   const user = useSelector(state => state.session.user);
-  const favorites = useSelector(state => state.favorites.favorites)
-  const matches = useSelector(state => state.matches.matches)
+  const favorites = useSelector(state => state.favorites.favorites);
+  const matches = useSelector(state => state.matches.matches);
 
   useEffect(() => {
     dispatch(matchesReducer.getMatches())
@@ -41,6 +41,10 @@ function UserProfile() {
     history.push(`/matches/${match_key}`)
   }
 
+  // function handleSendHome(){
+  //   history.push('/');
+  // }
+
   return (
     <div className="profile-wrapper">
       <div className="profile-container">
@@ -48,6 +52,14 @@ function UserProfile() {
         <div id="profile-name">{user.first_name} {user.last_name}</div>
       </div>
 
+      {/* { 
+        favorites === [] ?
+          <div onClick={() => handleSendHome()} id="send-home">
+            <i class="fas fa-arrow-left"></i>
+            Let's Add Some!
+          </div> 
+        : <></>
+      }  */}
       <div className="favorites-container">
         <div className="favorites-title-container">
           <div id="favorites-title">Favorite Matches</div>

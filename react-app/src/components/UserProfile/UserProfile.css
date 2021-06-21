@@ -40,7 +40,7 @@
 }
 
 .favorites-title-container{
-    position: fixed;
+    position: absolute;
     height: 50px;
     width: 451px;
     border-bottom: 1px solid #3a3a3a;
@@ -104,4 +104,19 @@ background: #008fc8;
 border-radius: 5px;
 }
 
+/* #send-home{
+    height: 15px;
+    width: 140px;
+    margin-top: 50px;
 
+} */
+
+#send-home:hover{
+    cursor: pointer;
+    color: #008fc8;
+    font-weight: bold;
+}
+
+.fas{
+    padding-right: 3px;
+}
