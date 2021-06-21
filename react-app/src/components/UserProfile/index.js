@@ -12,8 +12,6 @@ function UserProfile() {
   const favorites = useSelector(state => state.favorites.favorites);
   const matches = useSelector(state => state.matches.matches);
 
-  console.log(favorites, "favorites")
-
   useEffect(() => {
     dispatch(matchesReducer.getMatches())
     dispatch(favoriteReducer.getFavorites(user.id));

@@ -99,7 +99,7 @@ const Comments = () => {
             </div>
 
             <div className="comments-container">
-                {renderedComments.map((comment) => {
+                {comments.map((comment) => {
                     return(
                         <div id="comment-container" key={comment.id}>
                             {editComment == comment.id? 
