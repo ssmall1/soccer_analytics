@@ -11,6 +11,7 @@ comment_routes = Blueprint('comments', __name__)
 def get_comments(key):
     res = Comment.query.filter(Comment.match_key == key).all()
     comments = [comment.to_dict() for comment in res]
+    comments.reverse()
     return jsonify(comments)
 
 
