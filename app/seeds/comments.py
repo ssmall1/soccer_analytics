@@ -1,4 +1,8 @@
 from app.models import db, Comment
+import random
+from faker import Faker
+fake = Faker()
+
 
 # Adds a demo user, you can add other users here if you want
 def seed_comments():
@@ -39,6 +43,17 @@ def seed_comments():
     db.session.add(comment14)
     db.session.add(comment15)
 
+    db.session.commit()
+
+
+    for num in range(1,30):
+        num = Comment(
+            user_id=random.randint(7, 28),
+            content=fake.sentence(nb_words=9),
+            match_key=random.randint(1,6),
+        )
+
+    db.session.add(num)
     db.session.commit()
 
 # Uses a raw SQL query to TRUNCATE the users table.
