@@ -20,9 +20,9 @@ def get_comments(key):
 def post_comment():
     form = CommentForm()
     new_comment = Comment(
-        user_id = form.user_id.data,
-        match_key = form.match_key.data,
-        content = form.content.data
+        user_id=form.user_id.data,
+        match_key=form.match_key.data,
+        content=form.content.data
     )
 
     db.session.add(new_comment)
