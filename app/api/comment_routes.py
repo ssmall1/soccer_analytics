@@ -44,7 +44,7 @@ def remove_comment(comment_id):
 
 @comment_routes.route("/<int:id>", methods=["PUT"])
 @login_required
-def update_watchlist(id):
+def update_comment(id):
     comment = Comment.query.get(id)
 
     comment.content = request.json["content"]

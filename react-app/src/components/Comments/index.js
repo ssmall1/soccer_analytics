@@ -90,20 +90,20 @@ const Comments = () => {
                         <div id="comment-container" key={comment.id}>
                             {editComment == comment.id? 
                                 <form id="edit-comment-form">
-                                <input
-                                    id="comment-input"
-                                    type="textbox"
-                                    name="comment"
-                                    onChange={e => setEditedCommentContent(e.target.value)}
-                                    value={editedCommentContent}
-                                    placeholder={comment.content}
-                                    required
-                                >
-                                </input>
-                                <div className="edit-comment-container">
-                                    <button id="cancel-edit-comment" onClick={() => setEditComment(false)}>Cancel</button>
-                                    <button id="edit-comment" disabled={editedCommentContent === ""} onClick={(e) => handleEditComment(e, comment.id)}>Save</button>
-                                </div>
+                                    <input
+                                        id="comment-input"
+                                        type="textbox"
+                                        name="comment"
+                                        onChange={e => setEditedCommentContent(e.target.value)}
+                                        value={editedCommentContent}
+                                        placeholder={comment.content}
+                                        required
+                                    >
+                                    </input>
+                                    <div className="edit-comment-container">
+                                        <button id="cancel-edit-comment" onClick={() => setEditComment(false)}>Cancel</button>
+                                        <button id="edit-comment" disabled={editedCommentContent === ""} onClick={(e) => handleEditComment(e, comment.id)}>Save</button>
+                                    </div>
                                 </form>
                                 : <div id="comment">
                                     <img id="commenter-img" src={comment.user.img_url} alt={`${user.first_name} ${user.last_name} profile`}></img>

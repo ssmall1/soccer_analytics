@@ -1,14 +1,23 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from "react-router-dom";
 import './UserProfile.css';
 import * as matchesReducer from "../../store/matches";
 import * as favoriteReducer from "../../store/favorite";
+import * as sessionReducer from "../../store/session";
 
 function UserProfile() {
   const dispatch = useDispatch();
   const history = useHistory();
+
   const user = useSelector(state => state.session.user);
+  const [firstName, setFirstName] = useState(user.first_name);
+  const [lastName, setLastName] = useState(user.last_name);
+  const [imgUrl, setImgUrl] = useState(user.img_url);
+  const [bio, setBio] = useState(user.bio ? user.bio : "");
+  const [editForm, setEditForm] = useState(false);
+  const [confirmDelete, setConfirmDelete] = useState(false);
+ 
   const favorites = useSelector(state => state.favorites.favorites);
   const matches = useSelector(state => state.matches.matches);
 
@@ -45,12 +54,103 @@ function UserProfile() {
   //   history.push('/');
   // }
 
+  async function handleEditProfile(e){
+    e.preventDefault();
+    if (firstName === "" || lastName === "" || imgUrl === "" || bio === "") {
+        return null
+    }
+    let id = user.id;
+
+    const profile = {
+        id,
+        firstName,
+        lastName,
+        imgUrl,
+        bio
+    }
+    await dispatch(sessionReducer.updateUser(profile));
+    setEditForm(false);
+}
+
+  async function handleDeleteUser(){
+    setConfirmDelete(false);
+    await dispatch(sessionReducer.deleteUser(user.id));
+    history.push('/welcome');
+  }
+
   return (
     <div className="profile-wrapper">
-      <div className="profile-container">
-        <img id="profile-img" src={user.img_url} alt={`${user.first_name} ${user.last_name} profile`}></img>
-        <div id="profile-name">{user.first_name} {user.last_name}</div>
-      </div>
+      {editForm ?
+        <div className="edit-profile-form-container">
+          <form id="edit-profile-form">
+            <label>First Name</label>
+            <input
+                className="profile-input"
+                type="textbox"
+                name="first"
+                onChange={e => setFirstName(e.target.value)}
+                value={firstName}
+                required
+            >
+            </input>
+            <label>Last Name</label>
+            <input
+                className="profile-input"
+                type="textbox"
+                name="last"
+                onChange={e => setLastName(e.target.value)}
+                value={lastName}
+                required
+            >
+            </input>
+            <label>Profile Image</label>
+            <input
+                className="profile-input"
+                type="textbox"
+                name="img"
+                onChange={e => setImgUrl(e.target.value)}
+                value={imgUrl}
+                required
+            >
+            </input>
+            <label>Profile Bio</label>
+            <input
+                className="profile-input"
+                type="textbox"
+                name="bio"
+                onChange={e => setBio(e.target.value)}
+                value={bio}
+                required
+            >
+            </input>
+            <div className="edit-comment-container">
+                <button id="cancel-edit-profile" onClick={() => setEditForm(false)}>Cancel</button>
+                <button id="edit-profile" disabled={firstName === "" || lastName === "" || imgUrl === "" || bio === ""} onClick={(e) => handleEditProfile(e)}>Save</button>
+            </div>
+          </form>
+        </div>
+        :
+        <div className="profile-container">
+          <img id="profile-img" src={user.img_url} alt={`${user.first_name} ${user.last_name} profile`}></img>
+          <div id="profile-name">{user.first_name} {user.last_name}</div>
+          <div id="profile-bio">{user.bio}</div>
+          <div id="user-buttons-container">
+            <button id="open-edit-profile" onClick={() => setEditForm(true)}>Edit Profile</button>
+            <button id="delete-profile" onClick={() => setConfirmDelete(true)}>Delete Account</button>
+          </div>
+          { confirmDelete ? 
+            <div id="confirm-delete-container">
+              <div>Are You Sure?</div>
+              <div className="user-buttons-container">
+                <button id="delete-profile" onClick={() => handleDeleteUser()}>Yes I'm Sure</button>
+                <button id="cancel-delete-profile" onClick={() => setConfirmDelete(false)}>Just Kidding</button>
+              </div>
+            </div>
+            :
+            <></>
+          }
+        </div>
+      }
 
       {/* { 
         favorites === [] ?
