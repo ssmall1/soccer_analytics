@@ -15,7 +15,7 @@ const Match = () => {
 
     const [eventType, setEventType] = useState("Shot");
 
-    const events = useSelector(state => state.events.matchEvents);
+    // const events = useSelector(state => state.events.matchEvents);
     const match = useSelector(state => state.matches.match);
     const user = useSelector(state => state.session.user);
     const favorites = useSelector(state => state.favorites.favorites);
@@ -25,13 +25,12 @@ const Match = () => {
     }, [dispatch])
 
     useEffect(() => {
-        dispatch(eventsReducer.getMatchEvents(matchKey));
+        // dispatch(eventsReducer.getMatchEvents(matchKey));
         dispatch(favoriteReducer.getFavorites(user.id));
-        dispatch(eventsReducer.getEvents());
+        // dispatch(eventsReducer.getEvents());
     }, [match])
 
-    if (!events) return null;
-    
+    // if (!events) return null;
 
     if (!match) return null;
     
@@ -60,7 +59,7 @@ const Match = () => {
     async function handleRemoveFavorite(e) {
         e.preventDefault();
         await dispatch(favoriteReducer.deleteFavorite(currentFavorite));
-        await dispatch(favoriteReducer.getFavorites(user.id))
+        await dispatch(favoriteReducer.getFavorites(user.id));
     }
 
     return(
@@ -92,18 +91,8 @@ const Match = () => {
     
 
             </div>
-            {/* <div className="chart-selector-wrapper">
-                <select onChange={(e) => setEventType(e.target.value)} className="event-type-selector">
-                    <option value="Shot">Shots</option>
-                    <option value="Pass">Passes</option>
-                    <option value="Free Kick">Free Kick</option>
-                    <option value="Duel">Duel</option>
-                    <option value="Foul">Fouls</option>
-                    <option value="Save attempt">Save</option>
-                </select>
-            </div> */}
         </div>
     )
 }
 
-export default Match
+export default Match;
