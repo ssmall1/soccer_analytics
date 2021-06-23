@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux';
-import * as eventsReducer from "../../store/events";
+// import * as eventsReducer from "../../store/events";
 import * as matchesReducer from "../../store/matches";
 import * as favoriteReducer from "../../store/favorite";
 import EventScatterChart from "../EventScatterChart";
