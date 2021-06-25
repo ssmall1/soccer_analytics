@@ -10,7 +10,7 @@
 ## What is SCHUSA
 SCHUSA is a fullstack application that gives fans and professionals alike the ability to analyze European football matches
 
-Users are given access to highly specific event data with positional characteristics, which provides them with a complete match analysis.
+Users are given access to highly specific event data with positional coordinates, which provides them with a complete match analysis.
 
 ![](/readme-resources/schusa-walkthrough.gif)
 
@@ -56,12 +56,12 @@ function EventScatterChart({ matchKey, eventType }) {
 ```
 
 ## Backend Overview
-SCHUSA uses a Flask server and PostgreSQL as the database. The biggest challenge with the backend was undoubtedly cleaning and organizing the data for seeding. Wyscout provides incredibly detailed event data but there are a lot of unnecessary and overly complicated tags and associations that had to be parsed. Furthermore, the data had to be refactored into types and constructions that were suitable for a Postgres database. Due to the limit on Heroku databases of 10,000 rows, only five matches could be seeded. That being said, a future goal for the project is to expand beyond Heroku in order to seed full leagues and seasons. More data will only lead to more definitive conclusions and analysis possibilities.
+SCHUSA uses a Flask server and PostgreSQL a database. The biggest challenge with the backend was undoubtedly cleaning and organizing the data for seeding. Wyscout provides incredibly detailed event data but there are a lot of unnecessary and overly complicated tags and associations that had to be parsed. Furthermore, the data had to be refactored into types and constructions that were suitable for a Postgres database. Due to the limit on Heroku databases of 10,000 rows, only five matches could be seeded. That being said, a future goal for the project is to expand beyond Heroku in order to seed full leagues and seasons. More data will only lead to more definitive conclusions and analysis possibilities.
 
 ## Conclusion and Next Steps
 
 Building this project was a true labor of love. I have played soccer since I was three years old and have been following the European game since I was 10. To be able to create something for a game that has given me so much joy and feeling, not to mention mental toughness and acuity, has been one of my favorite parts of my software engineering journey to date.
 
-SCHUSA is also the first project I created that is completely independent from any existing site in terms of its construction, appearance, and application. Working on the design from database organization and manipulation to user-facing features and experience has been the most demanding and rewarding challenge of my engineering experience (notwithstanding data structures and algorithms). I found myself constantly reflecting and reevaluating my choices to ensure efficient use of data, bandwidth, and of course the user's time. I learned so much about my approach to application design, which I will implement and develop further in my next project.
+SCHUSA is also the first project I created that is completely independent from any existing site in terms of its construction, appearance, and application. Working on the design from database organization and manipulation to user-facing features and experience has been the most demanding and rewarding challenge of my engineering journey. I found myself constantly reflecting and reevaluating my choices to ensure efficient use of data, bandwidth, and of course the user's time. I learned so much about my approach to application design, which I will implement and develop further in my next project.
 
 **Next Steps:** There are numerous next steps outlined in this paper including seeding more matches and creating more team-oriented event filters. Additionally, I plan to add a player profile with statistics chart as well as a search feature, which will allow the user to search for any player and view their season-long performance. I also plan to add a messaging feature because web sockets are something I am keen to understand better.
