@@ -8,9 +8,9 @@
 * [Conclusion & Next Steps](#conclusion-and-next-steps)
 
 ## What is SCHUSA
-SCHUSA is a fullstack application that gives fans and professionals alike the ability to analyze European football matches
+SCHUSA is a fullstack application that gives fans and professionals alike the ability to analyze European football matches.
 
-Users are given access to highly specific event data with positional coordinates, which provides them with a complete match analysis.
+Users are given access to highly specific event data with positional coordinates, which provides them with complete match analysis.
 
 ![](/readme-resources/schusa-walkthrough.gif)
 
@@ -56,7 +56,7 @@ function EventScatterChart({ matchKey, eventType }) {
 ```
 
 ## Backend Overview
-SCHUSA uses a Flask server and PostgreSQL a database. The biggest challenge with the backend was undoubtedly cleaning and organizing the data for seeding. Wyscout provides incredibly detailed event data but there are a lot of unnecessary and overly complicated tags and associations that had to be parsed. Furthermore, the data had to be refactored into types and constructions that were suitable for a Postgres database. Due to the limit on Heroku databases of 10,000 rows, only five matches could be seeded. That being said, a future goal for the project is to expand beyond Heroku in order to seed full leagues and seasons. More data will only lead to more definitive conclusions and analysis possibilities.
+SCHUSA uses a Flask server and PostgreSQL a database. The biggest challenge with the backend was undoubtedly cleaning and organizing the data for seeding. Wyscout provides incredibly detailed event data but there are a lot of unnecessary and overly complicated tags and associations that had to be parsed. Furthermore, the data had to be refactored into types and formats that were suitable for a Postgres database and Flask server. Due to the limit on Heroku databases of 10,000 rows, only five matches could be seeded. That being said, a future goal for the project is to expand beyond Heroku in order to seed full leagues and seasons. More data will only lead to more definitive, data-driven conclusions and analysis possibilities.
 
 ## Conclusion and Next Steps
 
