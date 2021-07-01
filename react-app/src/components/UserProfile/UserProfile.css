@@ -69,8 +69,9 @@
 
 #edit-profile:disabled{
     color: white;
-    background-color: rgba(255, 0, 0, 0.623);
-    border: 2px solid rgba(255, 0, 0, 0.623);
+    background-color: rgba(122, 120, 120, 0.623);
+    border: 2px solid rgba(122, 120, 120, 0.623);
+    cursor: not-allowed;
 }
 
 #profile-name{
@@ -120,7 +121,7 @@
 
 #delete-profile{
     color: white;
-    background-color: rgba(255, 0, 0, 0.623);
+    background-color: rgba(252, 78, 78, 0.644);
     border: 2px solid rgba(255, 0, 0, 0.623);
 }
 

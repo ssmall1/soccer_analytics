@@ -144,8 +144,9 @@
 
 #edit-comment:disabled{
     color: white;
-    background-color: rgba(255, 0, 0, 0.623);
-    border: 2px solid rgba(255, 0, 0, 0.623);
+    background-color: rgba(122, 120, 120, 0.623);
+    border: 2px solid rgba(122, 120, 120, 0.623);
+    cursor: not-allowed;
 }
 
 .event-type-selector{
