@@ -32,8 +32,9 @@
 .splash-content-wrapper{
     display: grid;
     grid-template-columns: repeat(12, 1fr);
-    grid-template-rows: repeat(12, 1fr);
-    height: 210vh;
+    grid-template-rows: repeat(9, 1fr);
+    /* height: 210vh; */
+    height: 110em;
     background-image: linear-gradient(to top, white, rgb(240, 248, 255));
 }
 
@@ -114,7 +115,7 @@
 
 .splash-description{
     background-color: white;
-    height: 40vh;
+    /* height: 40vh; */
 }
 
 .features-wrapper{
