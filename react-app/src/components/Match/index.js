@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux';
-// import * as eventsReducer from "../../store/events";
 import * as matchesReducer from "../../store/matches";
 import * as favoriteReducer from "../../store/favorite";
 import EventScatterChart from "../EventScatterChart";
@@ -15,7 +14,6 @@ const Match = () => {
 
     const [eventType, setEventType] = useState("Shot");
 
-    // const events = useSelector(state => state.events.matchEvents);
     const match = useSelector(state => state.matches.match);
     const user = useSelector(state => state.session.user);
     const favorites = useSelector(state => state.favorites.favorites);
@@ -25,12 +23,8 @@ const Match = () => {
     }, [dispatch])
 
     useEffect(() => {
-        // dispatch(eventsReducer.getMatchEvents(matchKey));
         dispatch(favoriteReducer.getFavorites(user.id));
-        // dispatch(eventsReducer.getEvents());
     }, [match])
-
-    // if (!events) return null;
 
     if (!match) return null;
     
