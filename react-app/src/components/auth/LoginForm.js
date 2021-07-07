@@ -41,7 +41,7 @@ const LoginForm = () => {
   return (
     <div className='auth-wrapper'>
       <div className='login-image-container'>
-          <img alt='ocean pitch' id='form-image' src={forestPitch}></img>
+          <img alt='forest pitch' id='form-image' src={forestPitch}></img>
         </div>
 
       <form className="auth-form-wrapper" onSubmit={onLogin}>
