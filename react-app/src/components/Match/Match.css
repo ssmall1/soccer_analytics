@@ -1,5 +1,5 @@
 .match-wrapper{
-    height: 76em;
+    height: 210vh;
 }
 
 #match-favorite-btn, #match-unfavorite-btn{
@@ -59,7 +59,7 @@
 
 .pitch-chart-container{
     margin-left: 90px;
-    margin-bottom: 75px;
+    margin-bottom: 20px;
     background-image: url('../../resources/blank_field.png');
     background-repeat: no-repeat;
     height: 91vh;
