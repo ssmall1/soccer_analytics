@@ -63,13 +63,17 @@
     background-image: url('../../resources/blank_field.png');
     background-repeat: no-repeat;
     height: 91vh;
+    width: 66vw;
 }
 
 .chart-selector-wrapper{
-    display: flex;
-    justify-content: center;
-    margin-right: 60px;
-    margin-bottom: 50px;
+    /* display: flex;
+    justify-content: center; */
+    /* margin-right: 60px;
+    margin-bottom: 50px; */
+    position: absolute;
+    top: 20em;
+    right: 8em;
 }
 
 .event-type-selector{
