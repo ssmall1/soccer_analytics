@@ -78,12 +78,10 @@ const Match = () => {
                 <img id="match-page-img" src={match.match_img} alt={`${match.match_name}`}/>
             </div>
             <div className="match-content-wrapper">
-                <Comments id="comments-component"/>
                 <div className="pitch-chart-container">
                     <EventScatterChart id="pitch-chart" matchKey={matchKey} eventType={eventType}/>
                 </div>
-    
-
+                <Comments id="comments-component"/>
             </div>
         </div>
     )

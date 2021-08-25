@@ -1,5 +1,5 @@
 .match-wrapper{
-    height: 53em;
+    height: 76em;
 }
 
 #match-favorite-btn, #match-unfavorite-btn{
@@ -53,12 +53,13 @@
 }
 
 .match-content-wrapper{
-    display: flex;
+    /* display: flex; */
     margin-top: 50px;
 }
 
 .pitch-chart-container{
     margin-left: 90px;
+    margin-bottom: 75px;
     background-image: url('../../resources/blank_field.png');
     background-repeat: no-repeat;
     height: 91vh;
