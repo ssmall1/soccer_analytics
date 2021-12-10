@@ -15,7 +15,6 @@ export const getMatches = () => async (dispatch) => {
     const response = await fetch('/api/matches/');
     if (response.ok) {
         const matches = await response.json();
-        // console.log(matches)
         dispatch(setMatches(matches))
     }
 }
@@ -40,7 +39,6 @@ const matchesReducer = (state = initialState, action) => {
         case SET_MATCH:
             newState = { ...state }
             newState.match = action.match
-            console.log("newstate", newState)
             return newState;
         default:
             return state;

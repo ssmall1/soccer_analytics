@@ -222,13 +222,6 @@ background: #008fc8;
 border-radius: 5px;
 }
 
-/* #send-home{
-    height: 15px;
-    width: 140px;
-    margin-top: 50px;
-
-} */
-
 #send-home:hover{
     cursor: pointer;
     color: #008fc8;

@@ -45,7 +45,6 @@ function UserProfile() {
   }
 
   async function handleSetMatch(match_key){
-    console.log(match_key)
     await dispatch(matchesReducer.getMatch(match_key));
     history.push(`/matches/${match_key}`)
   }
