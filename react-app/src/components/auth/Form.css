@@ -1,10 +1,7 @@
 .auth-wrapper{
     display: grid;
-    /* height: 90vh; */
-    /* width: 100vw; */
     grid-template-columns: repeat(6, 1fr);
     grid-template-rows: 1fr;
-    /* background-color: rgba(240, 248, 255, 0.836); */
   }
   
   .auth-form-wrapper{
@@ -42,7 +39,6 @@
     height: 2.5em;
     border-radius: 6px;
     border: 1px rgb(228, 228, 228) solid;
-    /* margin: 10px 0px; */
     transition: all 0.1s ease;
     margin: 8px 0px;
   }
