@@ -1,5 +1,5 @@
 .home-wrapper{
-    height: 90%;
+    height: 85vh;
 }
 
 .matches-wrapper{
@@ -9,8 +9,8 @@
 }
 
 .match-container{
-    height: 250px;
-    width: 350px;
+    height: 30vh;
+    width: 25vw;
     margin: 30px 20px;
     display: flex;
     flex-direction: column;
@@ -27,8 +27,8 @@
 }
 
 #match-img{
-    height: 250px;
-    width: 350px;
+    height: 30vh;
+    width: 25vw;
     border-radius: 10%;
     box-shadow: 0px 0px 40px 20px rgba(0, 0, 0, 0.15);
 }
